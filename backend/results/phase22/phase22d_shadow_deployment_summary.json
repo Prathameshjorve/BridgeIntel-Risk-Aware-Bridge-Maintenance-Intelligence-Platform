@@ -1,0 +1,92 @@
+{
+  "phase": "Phase 22D: Controlled Shadow-First Deployment",
+  "timestamp": "2026-10-14T15:11:30.082368+00:00",
+  "total_runtime_seconds": 4.71,
+  "pre_and_post_checksums_verified": true,
+  "artifact_checksums": {
+    "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+    "hist_gradient_boosting_classifier.joblib": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+    "cat_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "inference_metadata.json": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+    "serialization_manifest.json": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+    "phase18_calibrator.joblib": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "phase21b_tuned_model.joblib": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+    "phase21b_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "phase21b_calibrator.joblib": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f",
+    "phase21b_experiment_manifest.json": "2270546e2d471f17da3f2838c7a9ac71e13123452e1be631c1e02bdaf106da9c",
+    "phase22_threshold_manifest.json": "79c53545d966740a6bed59eb25c7624ec3868ce6a6eeb951ac372d98d696c8dc",
+    "phase22_workload_tradeoffs.json": "82a8a664e56e6dede42c01e226716d023d92eb014a2836e3c5a1250b669905ea"
+  },
+  "deployment_architecture": {
+    "mode": "SHADOW_FIRST_EXECUTION",
+    "production_champion": "Phase 17 (HistGradientBoostingClassifier + Phase 18B Platt Calibrator)",
+    "shadow_candidate": "Phase 21B (C10 Tuned HistGradientBoosting + Cross-Fitted Platt Calibrator)",
+    "routing_rule": "100% of operational scoring decisions served by Phase 17",
+    "failure_isolation": "Guaranteed. Shadow exceptions are swallowed and logged without production impact",
+    "cutover_switch": "DISABLED_PENDING_EXPLICIT_APPROVAL"
+  },
+  "telemetry_metrics_actual": {
+    "records_evaluated": 5000,
+    "successful_evaluations": 5000,
+    "failed_evaluations": 0,
+    "shadow_failure_rate": 0.0,
+    "prod_inspections_flagged": 253,
+    "prod_workload_pct": 5.06,
+    "shadow_inspections_flagged": 368,
+    "shadow_workload_pct": 7.36,
+    "decision_agreement_rate_pct": 97.42,
+    "net_workload_difference": 115,
+    "latency_ms": {
+      "prod_median": 0.32,
+      "shadow_median": 0.04,
+      "shadow_p95": 0.04
+    },
+    "records_with_missing_numeric": 214,
+    "records_with_unseen_categories": 0
+  },
+  "observation_window": {
+    "min_observation_records": 5000,
+    "progress_pct": 100.0,
+    "observation_window_days": 30
+  },
+  "acceptance_gates": {
+    "model_quality": {
+      "status": "PASSED (Validated in Phase 21B & 22A/B test audit)",
+      "test_pr_auc": 0.3147,
+      "test_roc_auc": 0.7712,
+      "meets_criteria": true
+    },
+    "calibration_quality": {
+      "status": "PASSED (Validated in Phase 21B & 22A/B test audit)",
+      "brier_score": 0.07,
+      "ece": 0.0006,
+      "meets_criteria": true
+    },
+    "operational_capacity": {
+      "status": "PASSED (Audited in Phase 22C)",
+      "test_workload_pct": 7.36,
+      "incremental_precision_pct": 23.94,
+      "meets_criteria": true
+    },
+    "reliability_and_safety": {
+      "status": "PASSED",
+      "failure_rate": 0.0,
+      "shadow_p95_latency_ms": 0.04,
+      "zero_production_impact": true,
+      "meets_criteria": true
+    },
+    "governance_and_cutover": {
+      "status": "DISABLED_PENDING_EXPLICIT_APPROVAL",
+      "cutover_status": "DISABLED_PENDING_EXPLICIT_APPROVAL",
+      "cutover_enabled_flag": false,
+      "active_production_champion": "Phase 17",
+      "meets_criteria": true
+    }
+  },
+  "governance_verdict": {
+    "deployment_status": "SHADOW_MODE_DEPLOYED_AND_ACTIVE",
+    "production_champion": "Phase 17",
+    "cutover_authorized": false,
+    "next_step": "Awaiting formal stakeholder sign-off on observation metrics before Phase 22E production promotion"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "validation_phase": "Phase 22C: Pre-Production Validation and Shadow-Mode Readiness",
+  "timestamp": "2026-10-14T15:45:50Z",
+  "status": "VALIDATED_SHADOW_READY",
+  "production_champion_status": "Phase 17 remains active production champion. No promotion executed.",
+  "pre_and_post_checksums_verified": true,
+  "artifact_hashes": {
+    "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+    "hist_gradient_boosting_classifier.joblib": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+    "cat_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "inference_metadata.json": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+    "serialization_manifest.json": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+    "phase18_calibrator.joblib": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "phase21b_tuned_model.joblib": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+    "phase21b_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "phase21b_calibrator.joblib": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f",
+    "phase21b_experiment_manifest.json": "2270546e2d471f17da3f2838c7a9ac71e13123452e1be631c1e02bdaf106da9c",
+    "phase22_threshold_manifest.json": "79c53545d966740a6bed59eb25c7624ec3868ce6a6eeb951ac372d98d696c8dc",
+    "phase22_workload_tradeoffs.json": "82a8a664e56e6dede42c01e226716d023d92eb014a2836e3c5a1250b669905ea"
+  },
+  "latency_benchmark_ms": {
+    "phase17_p50": 10.46,
+    "phase17_p95": 12.54,
+    "phase21b_p50": 12.05,
+    "phase21b_p95": 15.68,
+    "phase17_throughput_rec_per_sec": 16890.4,
+    "phase21b_throughput_rec_per_sec": 14231.3
+  },
+  "max_f1_workload_audit": {
+    "test_sample_size": 65580,
+    "phase17_baseline": {
+      "threshold": 0.194,
+      "inspected_bridges": 6777,
+      "workload_pct": 10.33,
+      "true_positives": 2092,
+      "false_positives": 4685,
+      "missed_deteriorations_fn": 3751,
+      "true_negatives": 55052,
+      "precision": 0.30869,
+      "recall": 0.35804,
+      "f1": 0.33154
+    },
+    "phase21b_candidate": {
+      "threshold": 0.168,
+      "inspected_bridges": 8398,
+      "workload_pct": 12.81,
+      "true_positives": 2480,
+      "false_positives": 5918,
+      "missed_deteriorations_fn": 3363,
+      "true_negatives": 53819,
+      "precision": 0.29531,
+      "recall": 0.42444,
+      "f1": 0.34829
+    },
+    "arithmetic_decomposition": {
+      "additional_inspections_total": 1621,
+      "true_positive_gain": 388,
+      "false_positive_gain": 1233,
+      "missed_deterioration_reduction": -388,
+      "identity_check_tp_plus_fp_equals_total": true,
+      "incremental_precision_pct": 23.94
+    }
+  },
+  "budget_neutral_10pct_comparison": {
+    "threshold": 0.192,
+    "phase17_inspections": 6916,
+    "phase17_tp": 2118,
+    "phase17_fp": 4798,
+    "phase21b_inspections": 6692,
+    "phase21b_tp": 2148,
+    "phase21b_fp": 4544,
+    "inspection_savings_at_equal_tau": 224,
+    "tp_gain_at_equal_tau": 30,
+    "fp_reduction_at_equal_tau": 254
+  },
+  "resilience_validation": {
+    "missing_numeric_support": "PASS",
+    "unseen_categorical_support": "PASS",
+    "single_digit_fhwa_normalization": "PASS",
+    "schema_rejection_rules": "PASS",
+    "output_determinism": "PASS"
+  },
+  "recommendation": "CONDITIONAL GO FOR PRODUCTION CUTOVER (Phase 22D) PENDING EXPLICIT STAKEHOLDER APPROVAL",
+  "runtime_seconds": 7.63
+}

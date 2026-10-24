@@ -1,0 +1,1100 @@
+{
+  "2023": {
+    "year": 2023,
+    "file_name": "2023HwyBridgesDelimitedAllStates.txt",
+    "file_path": "D:\\sem 3\\Deep Learning\\project\\backend\\2023\\2023HwyBridgesDelimitedAllStates.txt",
+    "file_size_bytes": 255294994,
+    "header_column_count": 123,
+    "schema_matches_reference": true,
+    "schema_differences": [],
+    "total_rows_read": 621581,
+    "malformed_count": 0,
+    "malformed_samples": [],
+    "unique_bridge_ids": 621579,
+    "blank_ids_count": 0,
+    "duplicate_groups_count": 2,
+    "duplicate_rows_total": 4,
+    "duplicate_groups": {
+      "25_N100108PDDOTNBI": [
+        {
+          "line": 246723,
+          "state": "25",
+          "structure": "N100108PDDOTNBI",
+          "deck": "7",
+          "super": "8",
+          "sub": "8",
+          "culvert": "N",
+          "lowest_rating": "7",
+          "bridge_condition": "G",
+          "inspect_date": "721"
+        },
+        {
+          "line": 246724,
+          "state": "25",
+          "structure": "N100108PDDOTNBI",
+          "deck": "7",
+          "super": "6",
+          "sub": "6",
+          "culvert": "N",
+          "lowest_rating": "6",
+          "bridge_condition": "F",
+          "inspect_date": "721"
+        }
+      ],
+      "51_000000000001826": [
+        {
+          "line": 572609,
+          "state": "51",
+          "structure": "000000000001826",
+          "deck": "N",
+          "super": "N",
+          "sub": "N",
+          "culvert": "6",
+          "lowest_rating": "6",
+          "bridge_condition": "F",
+          "inspect_date": "222"
+        },
+        {
+          "line": 572610,
+          "state": "51",
+          "structure": "000000000001826",
+          "deck": "7",
+          "super": "5",
+          "sub": "5",
+          "culvert": "N",
+          "lowest_rating": "5",
+          "bridge_condition": "F",
+          "inspect_date": "922"
+        }
+      ]
+    },
+    "inspection_date_audit": {
+      "status_distribution": {
+        "VALID": 621581
+      },
+      "top_inspection_years": [
+        [
+          2024,
+          3
+        ],
+        [
+          2023,
+          27753
+        ],
+        [
+          2022,
+          310805
+        ],
+        [
+          2021,
+          251210
+        ],
+        [
+          2020,
+          20990
+        ],
+        [
+          2019,
+          9849
+        ],
+        [
+          2018,
+          567
+        ],
+        [
+          2017,
+          93
+        ],
+        [
+          2016,
+          63
+        ],
+        [
+          2015,
+          34
+        ]
+      ],
+      "month_distribution": [
+        [
+          1,
+          45122
+        ],
+        [
+          2,
+          43139
+        ],
+        [
+          3,
+          54812
+        ],
+        [
+          4,
+          54155
+        ],
+        [
+          5,
+          54787
+        ],
+        [
+          6,
+          52138
+        ],
+        [
+          7,
+          50531
+        ],
+        [
+          8,
+          55854
+        ],
+        [
+          9,
+          57450
+        ],
+        [
+          10,
+          63103
+        ],
+        [
+          11,
+          55116
+        ],
+        [
+          12,
+          35374
+        ]
+      ]
+    },
+    "condition_semantics": {
+      "deck_cond_distribution": {
+        "7": 203238,
+        "5": 58058,
+        "6": 122700,
+        "4": 12615,
+        "N": 151653,
+        "3": 1991,
+        "8": 60056,
+        "1": 94,
+        "9": 10361,
+        "2": 175,
+        "0": 640
+      },
+      "super_cond_distribution": {
+        "5": 59591,
+        "6": 115862,
+        "7": 182821,
+        "4": 14447,
+        "N": 146585,
+        "2": 395,
+        "3": 2673,
+        "1": 203,
+        "9": 12836,
+        "8": 85519,
+        "0": 649
+      },
+      "sub_cond_distribution": {
+        "7": 189663,
+        "6": 119462,
+        "5": 63670,
+        "4": 16636,
+        "N": 146739,
+        "1": 217,
+        "3": 3787,
+        "0": 631,
+        "2": 797,
+        "9": 10487,
+        "8": 69492
+      },
+      "culvert_cond_distribution": {
+        "N": 474983,
+        "6": 48367,
+        "5": 13473,
+        "7": 63986,
+        "4": 2511,
+        "8": 15147,
+        "9": 2299,
+        "2": 86,
+        "3": 692,
+        "1": 13,
+        "0": 23,
+        "n": 1
+      },
+      "lowest_rating_distribution": {
+        "5": 114495,
+        "6": 189565,
+        "7": 215616,
+        "4": 32561,
+        "2": 1248,
+        "3": 7430,
+        "1": 396,
+        "0": 769,
+        "8": 50990,
+        "9": 8511
+      },
+      "bridge_condition_distribution": {
+        "F": 304060,
+        "G": 275117,
+        "P": 42404
+      },
+      "rows_with_valid_components": 621581,
+      "lowest_rating_mismatches": 0,
+      "bridge_condition_mismatches": 0
+    },
+    "metrics_audit": {
+      "year_built_century_bins": [
+        [
+          "1690s",
+          1
+        ],
+        [
+          "1760s",
+          2
+        ],
+        [
+          "1770s",
+          1
+        ],
+        [
+          "1780s",
+          1
+        ],
+        [
+          "1790s",
+          5
+        ],
+        [
+          "1800s",
+          7
+        ],
+        [
+          "1810s",
+          7
+        ],
+        [
+          "1820s",
+          31
+        ],
+        [
+          "1830s",
+          63
+        ],
+        [
+          "1840s",
+          56
+        ],
+        [
+          "1850s",
+          166
+        ],
+        [
+          "1860s",
+          120
+        ],
+        [
+          "1870s",
+          210
+        ],
+        [
+          "1880s",
+          390
+        ],
+        [
+          "1890s",
+          582
+        ],
+        [
+          "1900s",
+          5092
+        ],
+        [
+          "1910s",
+          5077
+        ],
+        [
+          "1920s",
+          16053
+        ],
+        [
+          "1930s",
+          38152
+        ],
+        [
+          "1940s",
+          23421
+        ],
+        [
+          "1950s",
+          58909
+        ],
+        [
+          "1960s",
+          94560
+        ],
+        [
+          "1970s",
+          79456
+        ],
+        [
+          "1980s",
+          77042
+        ],
+        [
+          "1990s",
+          81086
+        ],
+        [
+          "2000s",
+          72467
+        ],
+        [
+          "2010s",
+          56960
+        ],
+        [
+          "2020s",
+          11664
+        ]
+      ],
+      "adt_positive_count": 619990,
+      "adt_zero_count": 1591,
+      "adt_blank_count": 0
+    }
+  },
+  "2024": {
+    "year": 2024,
+    "file_name": "2024HwyBridgesDelimitedAllStates.txt",
+    "file_path": "D:\\sem 3\\Deep Learning\\project\\backend\\2024\\2024HwyBridgesDelimitedAllStates.txt",
+    "file_size_bytes": 255834947,
+    "header_column_count": 123,
+    "schema_matches_reference": true,
+    "schema_differences": [],
+    "total_rows_read": 623218,
+    "malformed_count": 1,
+    "malformed_samples": [
+      {
+        "line_number": 459987,
+        "columns_found": 124,
+        "columns_expected": 123,
+        "row_preview": [
+          "42",
+          "000000000021795",
+          "1",
+          "1",
+          "7",
+          "00076"
+        ]
+      }
+    ],
+    "unique_bridge_ids": 623215,
+    "blank_ids_count": 0,
+    "duplicate_groups_count": 2,
+    "duplicate_rows_total": 4,
+    "duplicate_groups": {
+      "25_N100108PDDOTNBI": [
+        {
+          "line": 247253,
+          "state": "25",
+          "structure": "N100108PDDOTNBI",
+          "deck": "7",
+          "super": "6",
+          "sub": "6",
+          "culvert": "N",
+          "lowest_rating": "6",
+          "bridge_condition": "F",
+          "inspect_date": "723"
+        },
+        {
+          "line": 247254,
+          "state": "25",
+          "structure": "N100108PDDOTNBI",
+          "deck": "7",
+          "super": "8",
+          "sub": "8",
+          "culvert": "N",
+          "lowest_rating": "7",
+          "bridge_condition": "G",
+          "inspect_date": "823"
+        }
+      ],
+      "51_000000000001826": [
+        {
+          "line": 574023,
+          "state": "51",
+          "structure": "000000000001826",
+          "deck": "7",
+          "super": "5",
+          "sub": "5",
+          "culvert": "N",
+          "lowest_rating": "5",
+          "bridge_condition": "F",
+          "inspect_date": "922"
+        },
+        {
+          "line": 574024,
+          "state": "51",
+          "structure": "000000000001826",
+          "deck": "N",
+          "super": "N",
+          "sub": "N",
+          "culvert": "6",
+          "lowest_rating": "6",
+          "bridge_condition": "F",
+          "inspect_date": "224"
+        }
+      ]
+    },
+    "inspection_date_audit": {
+      "status_distribution": {
+        "VALID": 623216,
+        "BLANK": 1
+      },
+      "top_inspection_years": [
+        [
+          2032,
+          1
+        ],
+        [
+          2026,
+          1
+        ],
+        [
+          2025,
+          2
+        ],
+        [
+          2024,
+          26299
+        ],
+        [
+          2023,
+          310764
+        ],
+        [
+          2022,
+          254385
+        ],
+        [
+          2021,
+          18520
+        ],
+        [
+          2020,
+          12271
+        ],
+        [
+          2019,
+          541
+        ],
+        [
+          2018,
+          78
+        ]
+      ],
+      "month_distribution": [
+        [
+          1,
+          44268
+        ],
+        [
+          2,
+          45653
+        ],
+        [
+          3,
+          54538
+        ],
+        [
+          4,
+          53975
+        ],
+        [
+          5,
+          55732
+        ],
+        [
+          6,
+          51733
+        ],
+        [
+          7,
+          50004
+        ],
+        [
+          8,
+          56456
+        ],
+        [
+          9,
+          56901
+        ],
+        [
+          10,
+          63597
+        ],
+        [
+          11,
+          54823
+        ],
+        [
+          12,
+          35536
+        ]
+      ]
+    },
+    "condition_semantics": {
+      "deck_cond_distribution": {
+        "7": 203929,
+        "5": 57623,
+        "6": 123357,
+        "4": 12437,
+        "N": 152838,
+        "3": 1950,
+        "8": 59438,
+        "1": 98,
+        "9": 10674,
+        "2": 200,
+        "0": 673
+      },
+      "super_cond_distribution": {
+        "7": 183391,
+        "6": 116426,
+        "5": 59207,
+        "4": 14346,
+        "N": 147677,
+        "2": 415,
+        "3": 2723,
+        "1": 224,
+        "8": 84962,
+        "0": 668,
+        "9": 13178
+      },
+      "sub_cond_distribution": {
+        "7": 191083,
+        "6": 120374,
+        "5": 63150,
+        "4": 16426,
+        "N": 147822,
+        "1": 214,
+        "3": 3703,
+        "0": 638,
+        "2": 781,
+        "8": 68233,
+        "9": 10793
+      },
+      "culvert_cond_distribution": {
+        "N": 475530,
+        "6": 49489,
+        "5": 13622,
+        "7": 64168,
+        "4": 2560,
+        "8": 14662,
+        "9": 2339,
+        "2": 84,
+        "3": 721,
+        "0": 25,
+        "1": 16,
+        "n": 1
+      },
+      "lowest_rating_distribution": {
+        "7": 216493,
+        "6": 192188,
+        "5": 114090,
+        "4": 32278,
+        "2": 1250,
+        "3": 7341,
+        "1": 412,
+        "0": 799,
+        "8": 49643,
+        "9": 8723
+      },
+      "bridge_condition_distribution": {
+        "G": 274859,
+        "F": 306278,
+        "P": 42080
+      },
+      "rows_with_valid_components": 623217,
+      "lowest_rating_mismatches": 0,
+      "bridge_condition_mismatches": 0
+    },
+    "metrics_audit": {
+      "year_built_century_bins": [
+        [
+          "1690s",
+          1
+        ],
+        [
+          "1760s",
+          2
+        ],
+        [
+          "1770s",
+          1
+        ],
+        [
+          "1780s",
+          1
+        ],
+        [
+          "1790s",
+          5
+        ],
+        [
+          "1800s",
+          17
+        ],
+        [
+          "1810s",
+          7
+        ],
+        [
+          "1820s",
+          32
+        ],
+        [
+          "1830s",
+          63
+        ],
+        [
+          "1840s",
+          57
+        ],
+        [
+          "1850s",
+          167
+        ],
+        [
+          "1860s",
+          120
+        ],
+        [
+          "1870s",
+          211
+        ],
+        [
+          "1880s",
+          390
+        ],
+        [
+          "1890s",
+          580
+        ],
+        [
+          "1900s",
+          5009
+        ],
+        [
+          "1910s",
+          5008
+        ],
+        [
+          "1920s",
+          15826
+        ],
+        [
+          "1930s",
+          37507
+        ],
+        [
+          "1940s",
+          23088
+        ],
+        [
+          "1950s",
+          58190
+        ],
+        [
+          "1960s",
+          93703
+        ],
+        [
+          "1970s",
+          79014
+        ],
+        [
+          "1980s",
+          76815
+        ],
+        [
+          "1990s",
+          80962
+        ],
+        [
+          "2000s",
+          72518
+        ],
+        [
+          "2010s",
+          57289
+        ],
+        [
+          "2020s",
+          16634
+        ]
+      ],
+      "adt_positive_count": 621519,
+      "adt_zero_count": 1698,
+      "adt_blank_count": 0
+    }
+  },
+  "2025": {
+    "year": 2025,
+    "file_name": "2025HwyBridgesDelimitedAllStates.txt",
+    "file_path": "D:\\sem 3\\Deep Learning\\project\\backend\\2025\\2025HwyBridgesDelimitedAllStates.txt",
+    "file_size_bytes": 256436264,
+    "header_column_count": 123,
+    "schema_matches_reference": true,
+    "schema_differences": [],
+    "total_rows_read": 624193,
+    "malformed_count": 0,
+    "malformed_samples": [],
+    "unique_bridge_ids": 624191,
+    "blank_ids_count": 0,
+    "duplicate_groups_count": 2,
+    "duplicate_rows_total": 4,
+    "duplicate_groups": {
+      "25_N100108PDDOTNBI": [
+        {
+          "line": 247564,
+          "state": "25",
+          "structure": "N100108PDDOTNBI",
+          "deck": "7",
+          "super": "6",
+          "sub": "6",
+          "culvert": "N",
+          "lowest_rating": "6",
+          "bridge_condition": "F",
+          "inspect_date": "723"
+        },
+        {
+          "line": 247565,
+          "state": "25",
+          "structure": "N100108PDDOTNBI",
+          "deck": "7",
+          "super": "8",
+          "sub": "8",
+          "culvert": "N",
+          "lowest_rating": "7",
+          "bridge_condition": "G",
+          "inspect_date": "823"
+        }
+      ],
+      "51_000000000001826": [
+        {
+          "line": 574874,
+          "state": "51",
+          "structure": "000000000001826",
+          "deck": "6",
+          "super": "4",
+          "sub": "5",
+          "culvert": "N",
+          "lowest_rating": "4",
+          "bridge_condition": "P",
+          "inspect_date": "924"
+        },
+        {
+          "line": 574875,
+          "state": "51",
+          "structure": "000000000001826",
+          "deck": "N",
+          "super": "N",
+          "sub": "N",
+          "culvert": "6",
+          "lowest_rating": "6",
+          "bridge_condition": "F",
+          "inspect_date": "224"
+        }
+      ]
+    },
+    "inspection_date_audit": {
+      "status_distribution": {
+        "VALID": 624190,
+        "BLANK": 3
+      },
+      "top_inspection_years": [
+        [
+          2027,
+          1
+        ],
+        [
+          2026,
+          3
+        ],
+        [
+          2025,
+          24211
+        ],
+        [
+          2024,
+          313241
+        ],
+        [
+          2023,
+          253082
+        ],
+        [
+          2022,
+          20960
+        ],
+        [
+          2021,
+          11745
+        ],
+        [
+          2020,
+          498
+        ],
+        [
+          2019,
+          82
+        ],
+        [
+          2018,
+          55
+        ]
+      ],
+      "month_distribution": [
+        [
+          1,
+          43113
+        ],
+        [
+          2,
+          46568
+        ],
+        [
+          3,
+          53082
+        ],
+        [
+          4,
+          54926
+        ],
+        [
+          5,
+          54636
+        ],
+        [
+          6,
+          51607
+        ],
+        [
+          7,
+          50870
+        ],
+        [
+          8,
+          57271
+        ],
+        [
+          9,
+          57862
+        ],
+        [
+          10,
+          64661
+        ],
+        [
+          11,
+          52936
+        ],
+        [
+          12,
+          36658
+        ]
+      ]
+    },
+    "condition_semantics": {
+      "deck_cond_distribution": {
+        "7": 202795,
+        "5": 56134,
+        "6": 125713,
+        "4": 12075,
+        "N": 154209,
+        "3": 1882,
+        "8": 59468,
+        "1": 95,
+        "9": 10984,
+        "2": 212,
+        "0": 626
+      },
+      "super_cond_distribution": {
+        "7": 181380,
+        "6": 118356,
+        "5": 58002,
+        "4": 14428,
+        "N": 148536,
+        "2": 445,
+        "3": 2723,
+        "1": 236,
+        "8": 85530,
+        "0": 632,
+        "9": 13925
+      },
+      "sub_cond_distribution": {
+        "7": 189074,
+        "6": 123027,
+        "5": 61887,
+        "4": 16254,
+        "N": 148676,
+        "1": 220,
+        "3": 3546,
+        "0": 611,
+        "2": 695,
+        "8": 68971,
+        "9": 11232
+      },
+      "culvert_cond_distribution": {
+        "N": 475638,
+        "6": 50914,
+        "5": 13573,
+        "7": 63945,
+        "4": 2665,
+        "8": 14281,
+        "3": 690,
+        "9": 2344,
+        "2": 94,
+        "1": 21,
+        "0": 28
+      },
+      "lowest_rating_distribution": {
+        "7": 215162,
+        "6": 197448,
+        "5": 112281,
+        "4": 32163,
+        "2": 1209,
+        "3": 7118,
+        "1": 431,
+        "0": 764,
+        "8": 48728,
+        "9": 8889
+      },
+      "bridge_condition_distribution": {
+        "G": 272779,
+        "F": 309729,
+        "P": 41685
+      },
+      "rows_with_valid_components": 624193,
+      "lowest_rating_mismatches": 0,
+      "bridge_condition_mismatches": 0
+    },
+    "metrics_audit": {
+      "year_built_century_bins": [
+        [
+          "1690s",
+          1
+        ],
+        [
+          "1760s",
+          2
+        ],
+        [
+          "1770s",
+          1
+        ],
+        [
+          "1780s",
+          1
+        ],
+        [
+          "1790s",
+          5
+        ],
+        [
+          "1800s",
+          17
+        ],
+        [
+          "1810s",
+          7
+        ],
+        [
+          "1820s",
+          32
+        ],
+        [
+          "1830s",
+          60
+        ],
+        [
+          "1840s",
+          58
+        ],
+        [
+          "1850s",
+          166
+        ],
+        [
+          "1860s",
+          123
+        ],
+        [
+          "1870s",
+          212
+        ],
+        [
+          "1880s",
+          385
+        ],
+        [
+          "1890s",
+          576
+        ],
+        [
+          "1900s",
+          4877
+        ],
+        [
+          "1910s",
+          4885
+        ],
+        [
+          "1920s",
+          15577
+        ],
+        [
+          "1930s",
+          36902
+        ],
+        [
+          "1940s",
+          22743
+        ],
+        [
+          "1950s",
+          57500
+        ],
+        [
+          "1960s",
+          92892
+        ],
+        [
+          "1970s",
+          78587
+        ],
+        [
+          "1980s",
+          76607
+        ],
+        [
+          "1990s",
+          80858
+        ],
+        [
+          "2000s",
+          72584
+        ],
+        [
+          "2010s",
+          57413
+        ],
+        [
+          "2020s",
+          21122
+        ]
+      ],
+      "adt_positive_count": 622467,
+      "adt_zero_count": 1726,
+      "adt_blank_count": 0
+    }
+  }
+}

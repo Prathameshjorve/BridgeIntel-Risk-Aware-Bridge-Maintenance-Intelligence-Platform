@@ -1,0 +1,132 @@
+[
+  {
+    "feature": "prior_deck_condition",
+    "importance_mean": 0.20512999720494768,
+    "importance_std": 0.002186789594799431
+  },
+  {
+    "feature": "state_code",
+    "importance_mean": 0.09956706779967639,
+    "importance_std": 0.0059953271561838176
+  },
+  {
+    "feature": "prior_superstructure_condition",
+    "importance_mean": 0.019982901009414057,
+    "importance_std": 0.004324072925472782
+  },
+  {
+    "feature": "surface_type_108a",
+    "importance_mean": 0.011947775306193054,
+    "importance_std": 0.0009620669552443198
+  },
+  {
+    "feature": "adt",
+    "importance_mean": 0.009736227615438974,
+    "importance_std": 0.0026278357168558553
+  },
+  {
+    "feature": "structure_type_043b",
+    "importance_mean": 0.006933417721569579,
+    "importance_std": 0.0013417025540261422
+  },
+  {
+    "feature": "structure_len_mt",
+    "importance_mean": 0.004189220106634683,
+    "importance_std": 0.002235768050371783
+  },
+  {
+    "feature": "year_built",
+    "importance_mean": 0.004044809690228646,
+    "importance_std": 0.0005175345776284831
+  },
+  {
+    "feature": "structure_age_at_inspection",
+    "importance_mean": 0.003998677261965944,
+    "importance_std": 0.0010931433360553634
+  },
+  {
+    "feature": "prior_inspect_year",
+    "importance_mean": 0.003968164747510594,
+    "importance_std": 0.001132869302533539
+  },
+  {
+    "feature": "deck_protection_108c",
+    "importance_mean": 0.003565675448425454,
+    "importance_std": 0.0010729409209722534
+  },
+  {
+    "feature": "maintenance_responsibility",
+    "importance_mean": 0.0030529099972651298,
+    "importance_std": 0.0008436675134537261
+  },
+  {
+    "feature": "owner",
+    "importance_mean": 0.0022503309570184203,
+    "importance_std": 0.001507293209926864
+  },
+  {
+    "feature": "prior_substructure_condition",
+    "importance_mean": 0.002115153191977681,
+    "importance_std": 0.0006517932151454208
+  },
+  {
+    "feature": "structure_kind_043a",
+    "importance_mean": 0.0017603857056194606,
+    "importance_std": 0.000493175329085576
+  },
+  {
+    "feature": "functional_class",
+    "importance_mean": 0.0015617078856362764,
+    "importance_std": 0.0008509886294041271
+  },
+  {
+    "feature": "deck_structure_type_107",
+    "importance_mean": 0.001441688664260965,
+    "importance_std": 0.0004301044832090429
+  },
+  {
+    "feature": "percent_adt_truck",
+    "importance_mean": 0.0007869319886569138,
+    "importance_std": 0.00047423050998940224
+  },
+  {
+    "feature": "prior_inspect_month",
+    "importance_mean": 0.0007679757383457275,
+    "importance_std": 0.00046618499283560845
+  },
+  {
+    "feature": "deck_width_mt",
+    "importance_mean": 0.0007464562637998662,
+    "importance_std": 0.0010623874049143468
+  },
+  {
+    "feature": "membrane_type_108b",
+    "importance_mean": 0.000739149778724224,
+    "importance_std": 0.0005411244514280627
+  },
+  {
+    "feature": "detour_kilos",
+    "importance_mean": 0.0004991315483954927,
+    "importance_std": 0.0003850603691462179
+  },
+  {
+    "feature": "inspect_freq_months",
+    "importance_mean": 0.00044773003669151823,
+    "importance_std": 0.0002649655960196958
+  },
+  {
+    "feature": "max_span_len_mt",
+    "importance_mean": 0.00011250855050010111,
+    "importance_std": 0.0004654076119965833
+  },
+  {
+    "feature": "prior_culvert_condition",
+    "importance_mean": 0.0,
+    "importance_std": 0.0
+  },
+  {
+    "feature": "traffic_lanes_on",
+    "importance_mean": -0.0001376426709138512,
+    "importance_std": 0.00020182473072076422
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "phase": "Phase 18B: Probability Calibration & Independent Validation",
+  "generated_at": "2026-10-13T09:56:37.978796",
+  "execution_duration_seconds": 0.36,
+  "source_validation_file": {
+    "path": "D:\\sem 3\\Deep Learning\\project\\backend\\results\\phase17\\val_predictions.json",
+    "sha256": "94ca5b07742a78b38657009948433ae2bccaf409d49dcafd6cbd18c3aadf2212"
+  },
+  "champion_calibrator": {
+    "method": "platt_scaling",
+    "artifact_path": "D:\\sem 3\\Deep Learning\\project\\backend\\results\\phase18\\calibration\\phase18_calibrator.joblib",
+    "sha256": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "parameters": {
+      "A_slope": 1.1066895013320128,
+      "B_intercept": -2.2788614105901766
+    }
+  },
+  "generated_artifacts": {
+    "phase18_calibrator.joblib": {
+      "sha256": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+      "bytes": 879
+    },
+    "calibration_comparison.json": {
+      "sha256": "2808200080dfebf618b8f2fae152f8fbcc376ee71ec5225a0a667be62186d6fd",
+      "bytes": 17419
+    },
+    "calibration_report.md": {
+      "sha256": "7ca09200f888595e923891a32691d4517a2835b6f031f6c65b2ccf63d24063b4",
+      "bytes": 9950
+    },
+    "reliability_diagram_data.json": {
+      "sha256": "7a8f1e5d9d73b30e811c8cf256cb972067ff45913b05f8a8a1b462681f11279c",
+      "bytes": 13536
+    },
+    "reliability_diagram.svg": {
+      "sha256": "4c6fefddaab38ae4a0011b51f2ec9e3bdd19ce94bc30ed7793082f52b3357e5e",
+      "bytes": 13517
+    },
+    "calibration_split_manifest.json": {
+      "sha256": "c7cf3c1906b43158de43798b33a16334179d3ee304449eaa544c461bda4c52b7",
+      "bytes": 862
+    }
+  }
+}

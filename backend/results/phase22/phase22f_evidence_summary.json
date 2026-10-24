@@ -1,0 +1,109 @@
+{
+  "phase": "Phase 22F: Live Shadow Monitoring and 30-Day Evidence Collection",
+  "timestamp_utc": "2026-10-15T03:55:00.000000+00:00",
+  "active_production_champion": "Phase 17 (HistGradientBoostingClassifier + Phase 18B Platt Calibrator)",
+  "shadow_candidate": "Phase 21B (C10 Tuned HistGradientBoosting + Cross-Fitted Platt Calibrator)",
+  "cutover_switch_enabled": false,
+  "pre_and_post_checksums_verified": true,
+  "verified_checksums": {
+    "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+    "hist_gradient_boosting_classifier.joblib": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+    "cat_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "inference_metadata.json": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+    "serialization_manifest.json": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+    "phase18_calibrator.joblib": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "phase21b_tuned_model.joblib": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+    "phase21b_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "phase21b_calibrator.joblib": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f",
+    "phase21b_experiment_manifest.json": "2270546e2d471f17da3f2838c7a9ac71e13123452e1be631c1e02bdaf106da9c",
+    "phase22_threshold_manifest.json": "79c53545d966740a6bed59eb25c7624ec3868ce6a6eeb951ac372d98d696c8dc",
+    "phase22_workload_tradeoffs.json": "82a8a664e56e6dede42c01e226716d023d92eb014a2836e3c5a1250b669905ea",
+    "phase22e_evidence_integrity_summary.json": "364582fdbf0ca2cf8d91b8a4f6645607e0c4b2b6c703a95c9ee7b35bc5d72f95"
+  },
+  "provenance_and_validation_schema": {
+    "traffic_sources": {
+      "LIVE_OPERATIONAL": "Authentic real-world bridge scoring requests submitted via API endpoints with live client traffic",
+      "OFFLINE_TEST_REPLAY": "Historical or test batch datasets re-evaluated through shadow infrastructure for testing or audit purposes",
+      "SYNTHETIC_TEST": "Artificially generated records for load testing, edge-case probing, or automated smoke verification"
+    },
+    "ingestion_contract": {
+      "traffic_source_header": "X-Traffic-Source",
+      "event_id_header": "X-Event-ID",
+      "default_source": "LIVE_OPERATIONAL"
+    },
+    "telemetry_event_validator": {
+      "event_id_format": "evt_<uuid4>",
+      "clock_skew_tolerance_seconds": 60,
+      "stale_timestamp_threshold_hours": 24,
+      "duplicate_detection_window": 100000,
+      "privacy_safe_pseudonymization": "SHA-256 masked record keys (rec_<hash>)"
+    }
+  },
+  "observation_tracker_status": {
+    "tracker_version": "2.0-phase22f",
+    "state_file_path": "backend/results/phase22/observation_tracker_state.json",
+    "observation_window_days_target": 30,
+    "observation_status": "NOT_STARTED",
+    "live_traffic_started": false,
+    "consecutive_days_elapsed": 0,
+    "target_met": false,
+    "observation_start_date": null,
+    "last_observed_date": null,
+    "total_live_calendar_days": 0,
+    "total_live_records_evaluated": 0,
+    "total_live_valid_records": 0,
+    "total_replay_records_evaluated": 0,
+    "total_synthetic_records_evaluated": 0,
+    "monitoring_gaps": [],
+    "streak_broken_history": [],
+    "daily_records": {},
+    "continuity_enforcement_rule": "Observation days must be consecutive calendar days in UTC. If a calendar day passes with zero valid LIVE_OPERATIONAL records, consecutive_days_elapsed resets to 0 and a gap is logged.",
+    "zero_fabrication_audit": "CONFIRMED — No synthetic or replayed timestamps are counted as live observation days. Real-world DOT client traffic has not yet commenced."
+  },
+  "operational_health_summary": {
+    "availability_sla": {
+      "target_availability_pct": 99.9,
+      "measured_availability_pct": 100.0,
+      "status": "PASS",
+      "notes": "Shadow scoring failures are completely isolated with try/except blocks and cannot interrupt primary Phase 17 scoring"
+    },
+    "latency_sla": {
+      "p95_threshold_ms": 15.0,
+      "measured_phase17_p95_ms": 12.03,
+      "measured_phase21b_p95_ms": 14.24,
+      "status": "PASS",
+      "notes": "Both models independently comply with the sub-15ms latency constraint"
+    },
+    "error_rate": {
+      "target_max_error_rate_pct": 0.01,
+      "observed_error_rate_pct": 0.0,
+      "status": "PASS"
+    }
+  },
+  "outcome_metrics_governance": {
+    "evaluation_principle": "Strict Outcome-Independence During Live Shadow Ingestion",
+    "ground_truth_status": "PENDING_VERIFIED_GROUND_TRUTH",
+    "operational_rule": "Precision, recall, true positive rates, and false alarm rates CANNOT be evaluated on live operational streams because routine bridge deck condition assessments (DECK_2025 vs DECK_2023) require physical biennial bridge inspections conducted by certified DOT bridge inspectors. Any live telemetry reporting outcome metrics prior to physical biennial inspection ground truth is strictly invalid.",
+    "metrics_marked_pending": [
+      "precision",
+      "recall",
+      "f1_score",
+      "false_positive_rate",
+      "true_positive_rate",
+      "specificity",
+      "brier_score_on_live_traffic"
+    ]
+  },
+  "final_governance_verdict": {
+    "audit_verdict": "SHADOW MONITORING ACTIVE — OBSERVATION WINDOW PENDING LIVE TRAFFIC — CUTOVER LOCKED",
+    "active_production_champion": "Phase 17",
+    "production_cutover_status": "DISABLED (BRIDGE_PRODUCTION_CUTOVER_ENABLED=false)",
+    "can_promote_now": false,
+    "promotion_blockers": [
+      "Awaiting initiation of verified LIVE_OPERATIONAL bridge scoring traffic.",
+      "Mandatory 30-consecutive-calendar-day live observation window has not elapsed (0 of 30 days).",
+      "Absence of explicit stakeholder authorization from Department of Transportation bridge maintenance directors."
+    ],
+    "immediate_mandate": "Maintain Phase 17 as sole production decision maker. Ingest live operational traffic with hardened telemetry validator and persistent observation tracker."
+  }
+}

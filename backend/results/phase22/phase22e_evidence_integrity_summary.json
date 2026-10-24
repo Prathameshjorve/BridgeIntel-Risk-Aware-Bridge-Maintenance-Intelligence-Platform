@@ -1,0 +1,210 @@
+{
+  "audit_phase": "Phase 22E: Shadow Evidence Integrity and Readiness Audit",
+  "timestamp_utc": "2026-10-14T16:12:33.394251+00:00",
+  "total_runtime_seconds": 8.65,
+  "active_production_champion": "Phase 17 (HistGradientBoostingClassifier + Phase 18B Platt Calibrator)",
+  "shadow_candidate": "Phase 21B (C10 Tuned HistGradientBoosting + Cross-Fitted Platt Calibrator)",
+  "cutover_switch_enabled": false,
+  "pre_and_post_checksums_verified": true,
+  "verified_checksums": {
+    "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+    "hist_gradient_boosting_classifier.joblib": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+    "cat_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "inference_metadata.json": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+    "serialization_manifest.json": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+    "phase18_calibrator.joblib": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "phase21b_tuned_model.joblib": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+    "phase21b_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "phase21b_calibrator.joblib": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f",
+    "phase21b_experiment_manifest.json": "2270546e2d471f17da3f2838c7a9ac71e13123452e1be631c1e02bdaf106da9c",
+    "phase22_threshold_manifest.json": "79c53545d966740a6bed59eb25c7624ec3868ce6a6eeb951ac372d98d696c8dc",
+    "phase22_workload_tradeoffs.json": "82a8a664e56e6dede42c01e226716d023d92eb014a2836e3c5a1250b669905ea"
+  },
+  "workload_arithmetic_audit": {
+    "cohort_a_national_test_split": {
+      "record_count": 65580,
+      "deterioration_count": 5843,
+      "prevalence_pct": 8.91,
+      "phase17_flags": 6777,
+      "phase17_workload_pct": 10.33,
+      "phase17_confusion_matrix": {
+        "tp": 2092,
+        "fp": 4685,
+        "fn": 3751,
+        "tn": 55052
+      },
+      "phase17_metrics": {
+        "precision_pct": 30.87,
+        "recall_pct": 35.8,
+        "f1": 0.3315
+      },
+      "phase21b_flags": 8398,
+      "phase21b_workload_pct": 12.81,
+      "phase21b_confusion_matrix": {
+        "tp": 2480,
+        "fp": 5918,
+        "fn": 3363,
+        "tn": 53819
+      },
+      "phase21b_metrics": {
+        "precision_pct": 29.53,
+        "recall_pct": 42.44,
+        "f1": 0.3483
+      },
+      "delta": {
+        "net_flags": 1621,
+        "delta_tp": 388,
+        "delta_fp": 1233,
+        "delta_fn": -388,
+        "incremental_precision_pct": 23.94
+      }
+    },
+    "cohort_b_regional_5k_sample": {
+      "record_count": 5000,
+      "states": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "deterioration_count": 348,
+      "prevalence_pct": 6.96,
+      "phase17_flags": 253,
+      "phase17_workload_pct": 5.06,
+      "phase17_confusion_matrix": {
+        "tp": 74,
+        "fp": 179,
+        "fn": 274,
+        "tn": 4473
+      },
+      "phase17_metrics": {
+        "precision_pct": 29.25,
+        "recall_pct": 21.26,
+        "f1": 0.2463
+      },
+      "phase21b_flags": 368,
+      "phase21b_workload_pct": 7.36,
+      "phase21b_confusion_matrix": {
+        "tp": 98,
+        "fp": 270,
+        "fn": 250,
+        "tn": 4382
+      },
+      "phase21b_metrics": {
+        "precision_pct": 26.63,
+        "recall_pct": 28.16,
+        "f1": 0.2737
+      },
+      "delta": {
+        "net_flags": 115,
+        "delta_tp": 24,
+        "delta_fp": 91,
+        "delta_fn": -24,
+        "incremental_precision_pct": 20.87,
+        "agreement_rate_pct": 97.42
+      }
+    },
+    "cohort_discrepancy_explanation": "Phase 22D reported a workload of 7.36% alongside an incremental precision of 23.94%. Audit reveals these metrics belong to two separate cohorts: 7.36% (368 flags) is from the 5,000-record regional slice (States AL, AK, AZ, AR, CA with lower deterioration prevalence of 6.96%), whereas 23.94% (+388 TP / +1,621 flags) is from the full 65,580 national test partition (8.91% prevalence). On the 5,000-record slice, actual incremental precision is 20.87% (+24 TP / +115 flags)."
+  },
+  "observation_and_traffic_audit": {
+    "telemetry_log_path": "D:\\sem 3\\Deep Learning\\project\\backend\\results\\phase22\\phase22d_shadow_telemetry.jsonl",
+    "telemetry_record_count": 5000,
+    "telemetry_failure_count": 0,
+    "failure_rate_pct": 0.0,
+    "data_source": "OFFLINE_TEST_REPLAY",
+    "earliest_timestamp": "2026-10-14T15:11:29.322846+00:00",
+    "latest_timestamp": "2026-10-14T15:11:29.322846+00:00",
+    "distinct_calendar_dates": [
+      "2026-10-14"
+    ],
+    "calendar_days_elapsed": 1,
+    "observation_window_days_required": 30,
+    "temporal_criteria_met": false,
+    "observation_verdict": "UNVERIFIED_TEMPORAL_WINDOW (Replayed offline batch cannot satisfy 30-day temporal operational monitoring)"
+  },
+  "latency_audit": {
+    "reported_phase22d_latency_ms": 0.04,
+    "reported_metric_type": "AMORTIZED_BATCH_RUNTIME_PER_ITEM",
+    "measured_single_record_p17_median_ms": 10.92,
+    "measured_single_record_p17_p95_ms": 12.03,
+    "measured_single_record_p21b_median_ms": 12.79,
+    "measured_single_record_p21b_p95_ms": 14.24,
+    "sla_threshold_p95_ms": 15.0,
+    "sla_compliance": true,
+    "latency_explanation": "The 0.04 ms latency cited in Phase 22D was an amortized batch processing speed (200 ms / 5,000 items) under vectorized inference. True single-record API request latency is ~9-11 ms median and ~12-14 ms p95, which strictly complies with the <= 15.0 ms SLA threshold."
+  },
+  "acceptance_gates_audit": {
+    "model_quality": {
+      "status": "PASSED (WITH DOCUMENTED LIMITATIONS)",
+      "criterion": "PR-AUC >= 0.3000, ROC-AUC >= 0.7500",
+      "observed_pr_auc": 0.3147,
+      "observed_roc_auc": 0.7712,
+      "baseline_pr_auc": 0.2831,
+      "baseline_roc_auc": 0.7516,
+      "meets_criteria": true,
+      "limitations": "Evaluated on internal test split; repeated partition exposure carries mild overfitting risk. Generalization across external jurisdictions unvalidated."
+    },
+    "calibration_quality": {
+      "status": "PASSED",
+      "criterion": "Brier Score <= 0.0750, ECE <= 0.0100",
+      "observed_brier": 0.07,
+      "observed_ece": 0.0006,
+      "meets_criteria": true,
+      "notes": "Calibrated with cross-fitted Platt scaling; monotonic risk ordering preserved."
+    },
+    "operational_capacity": {
+      "status": "CONDITIONAL PASS",
+      "criterion": "10.0% <= Workload <= 13.5%; Incremental Precision >= 20.0%",
+      "national_workload_pct": 12.81,
+      "national_incremental_precision_pct": 23.94,
+      "regional_5k_workload_pct": 7.36,
+      "regional_5k_incremental_precision_pct": 20.87,
+      "meets_criteria": true,
+      "notes": "National workload (12.81%) fits within DOT budget band. Regional slice workload is 7.36% due to lower degradation prevalence (6.96% vs 8.91% national). Incremental precision exceeds 20% in both cohorts."
+    },
+    "reliability_and_safety": {
+      "status": "PASSED",
+      "criterion": "Failure rate <= 0.01%; p95 latency <= 15.0 ms; zero production outage",
+      "observed_failure_rate": 0.0,
+      "observed_single_p95_ms": 14.24,
+      "observed_batch_amortized_ms": 0.04,
+      "zero_production_impact_verified": true,
+      "meets_criteria": true
+    },
+    "governance_and_cutover": {
+      "status": "LOCKED / BLOCKED",
+      "criterion": "BRIDGE_PRODUCTION_CUTOVER_ENABLED=false; Phase 17 remains champion",
+      "cutover_switch_state": false,
+      "active_production_champion": "Phase 17",
+      "stakeholder_authorization_granted": false,
+      "meets_criteria": true
+    },
+    "live_observation_period": {
+      "status": "INCONCLUSIVE / PENDING",
+      "criterion": "30 operational calendar days with live incoming traffic",
+      "calendar_days_elapsed": 0,
+      "distinct_calendar_dates_observed": [
+        "2026-10-14"
+      ],
+      "data_source": "OFFLINE_TEST_REPLAY",
+      "meets_criteria": false,
+      "notes": "All 5,000 telemetry entries were generated in an offline replay on 2026-10-14. Zero days of live operational traffic have elapsed."
+    }
+  },
+  "final_governance_verdict": {
+    "audit_verdict": "CONDITIONAL PASS \u2014 SHADOW OBSERVATION ACTIVE, PRODUCTION CUTOVER LOCKED",
+    "active_production_champion": "Phase 17",
+    "production_cutover_status": "DISABLED_PENDING_EXPLICIT_APPROVAL",
+    "can_promote_now": false,
+    "promotion_blockers": [
+      "Temporal observation window has not elapsed (0 of 30 live calendar days observed).",
+      "Explicit stakeholder cutover authorization has not been granted."
+    ],
+    "required_next_actions": [
+      "Maintain Phase 17 as active production champion for 100% of live traffic.",
+      "Maintain shadow scoring service with asynchronous logging for 30 live operational calendar days.",
+      "Obtain formal bridge engineering stakeholder sign-off prior to any production cutover."
+    ]
+  }
+}

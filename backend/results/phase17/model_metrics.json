@@ -1,0 +1,145 @@
+{
+  "execution_timestamp": "2026-10-13T08:45:47.435823",
+  "package_versions": {
+    "python": "3.9.12",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.5.3"
+  },
+  "sample_counts": {
+    "total": 435210,
+    "train": 304541,
+    "val": 65089,
+    "test": 65580
+  },
+  "task1_condition_prediction": {
+    "persistence_baseline": {
+      "name": "Persistence Baseline (y_hat = prior)",
+      "exact_accuracy": 0.8679627935346143,
+      "ordinal_mae": 0.16247331503507167,
+      "rmse": 0.5086174144589845,
+      "macro_f1": 0.7795307603320998
+    },
+    "ridge_regression": {
+      "name": "Ridge Regression (Rounded)",
+      "fit_time_sec": 0.06,
+      "exact_accuracy": 0.8667581579749923,
+      "ordinal_mae": 0.16340347666971639,
+      "rmse": 0.5075219503032812,
+      "macro_f1": 0.590618442707204,
+      "mae_delta_vs_persistence": 0.0009301616346447106
+    },
+    "hist_gradient_boosting_regressor": {
+      "name": "HistGradientBoosting Regressor",
+      "fit_time_sec": 2.85,
+      "exact_accuracy": 0.861543153400427,
+      "ordinal_mae": 0.16541628545288198,
+      "rmse": 0.49628076933607734,
+      "macro_f1": 0.6232782871233397,
+      "mae_delta_vs_persistence": 0.0029429704178103033
+    },
+    "task1_hgb_per_class": {
+      "0": {
+        "precision": 1.0,
+        "recall": 0.4079,
+        "f1": 0.5794,
+        "support": 76.0
+      },
+      "1": {
+        "precision": 0.087,
+        "recall": 0.2,
+        "f1": 0.1212,
+        "support": 10.0
+      },
+      "2": {
+        "precision": 0.2857,
+        "recall": 0.1429,
+        "f1": 0.1905,
+        "support": 28.0
+      },
+      "3": {
+        "precision": 0.8197,
+        "recall": 0.3788,
+        "f1": 0.5181,
+        "support": 264.0
+      },
+      "4": {
+        "precision": 0.802,
+        "recall": 0.5816,
+        "f1": 0.6743,
+        "support": 1783.0
+      },
+      "5": {
+        "precision": 0.8144,
+        "recall": 0.8311,
+        "f1": 0.8227,
+        "support": 8128.0
+      },
+      "6": {
+        "precision": 0.8678,
+        "recall": 0.8509,
+        "f1": 0.8593,
+        "support": 18011.0
+      },
+      "7": {
+        "precision": 0.9003,
+        "recall": 0.9018,
+        "f1": 0.9011,
+        "support": 28384.0
+      },
+      "8": {
+        "precision": 0.7875,
+        "recall": 0.8878,
+        "f1": 0.8347,
+        "support": 7674.0
+      },
+      "9": {
+        "precision": 0.7883,
+        "recall": 0.6825,
+        "f1": 0.7316,
+        "support": 1222.0
+      }
+    }
+  },
+  "task2_deterioration_prediction": {
+    "always_negative_baseline": {
+      "name": "Always-Negative Baseline",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pr_auc": 0.089097285757853,
+      "roc_auc": 0.5,
+      "balanced_accuracy": 0.5,
+      "exact_accuracy": 0.910902714242147,
+      "explanation": "Predicts zero deterioration for all bridges. Trivial 91.1% accuracy but 0.0% recall."
+    },
+    "balanced_logistic_regression": {
+      "name": "Balanced Logistic Regression",
+      "fit_time_sec": 3.1,
+      "selected_threshold_from_val": 0.6,
+      "validation_f1_at_threshold": 0.266,
+      "test_precision": 0.19550358231079634,
+      "test_recall": 0.4062981345199384,
+      "test_f1": 0.26398309796508396,
+      "test_pr_auc": 0.18570716855619993,
+      "test_roc_auc": 0.6816869601427177,
+      "test_balanced_accuracy": 0.6213823230310993,
+      "test_accuracy": 0.7981396767307106
+    },
+    "hist_gradient_boosting_classifier": {
+      "name": "HistGradientBoosting Classifier",
+      "fit_time_sec": 2.18,
+      "selected_threshold_from_val": 0.68,
+      "validation_f1_at_threshold": 0.3384,
+      "test_precision": 0.30377035132819197,
+      "test_recall": 0.3640253294540476,
+      "test_f1": 0.33117944725574155,
+      "test_pr_auc": 0.29433545412630135,
+      "test_roc_auc": 0.762454567562509,
+      "test_balanced_accuracy": 0.6412088078209187,
+      "test_accuracy": 0.8689996950289722
+    }
+  }
+}

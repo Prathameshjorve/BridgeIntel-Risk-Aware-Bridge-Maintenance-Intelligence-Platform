@@ -1,0 +1,156 @@
+{
+  "pipeline_name": "NBI Longitudinal Condition Modeling Dataset (Phase 16)",
+  "generated_at": "2026-10-13T07:50:34.320915",
+  "earlier_baseline_release": 2023,
+  "later_target_release": 2025,
+  "primary_dataset_csv": "bridge_deck_condition_2023_2025.csv",
+  "total_records": 435210,
+  "total_columns": 35,
+  "columns": [
+    "bridge_id",
+    "state_code",
+    "structure_number",
+    "prior_deck_condition",
+    "prior_superstructure_condition",
+    "prior_substructure_condition",
+    "prior_culvert_condition",
+    "structure_kind_043a",
+    "structure_type_043b",
+    "deck_structure_type_107",
+    "surface_type_108a",
+    "membrane_type_108b",
+    "deck_protection_108c",
+    "structure_len_mt",
+    "max_span_len_mt",
+    "deck_width_mt",
+    "traffic_lanes_on",
+    "adt",
+    "percent_adt_truck",
+    "detour_kilos",
+    "functional_class",
+    "maintenance_responsibility",
+    "owner",
+    "year_built",
+    "structure_age_at_inspection",
+    "prior_inspect_month",
+    "prior_inspect_year",
+    "inspect_freq_months",
+    "target_deck_condition",
+    "target_deterioration",
+    "condition_delta",
+    "target_inspect_month",
+    "target_inspect_year",
+    "inspection_interval_months",
+    "split"
+  ],
+  "feature_allowlist": [
+    "prior_deck_condition",
+    "prior_superstructure_condition",
+    "prior_substructure_condition",
+    "prior_culvert_condition",
+    "structure_kind_043a",
+    "structure_type_043b",
+    "deck_structure_type_107",
+    "surface_type_108a",
+    "membrane_type_108b",
+    "deck_protection_108c",
+    "structure_len_mt",
+    "max_span_len_mt",
+    "deck_width_mt",
+    "traffic_lanes_on",
+    "adt",
+    "percent_adt_truck",
+    "detour_kilos",
+    "functional_class",
+    "maintenance_responsibility",
+    "owner",
+    "year_built",
+    "structure_age_at_inspection",
+    "state_code",
+    "prior_inspect_month",
+    "prior_inspect_year",
+    "inspect_freq_months"
+  ],
+  "metadata_and_target_columns": [
+    "bridge_id",
+    "structure_number",
+    "target_deck_condition",
+    "target_deterioration",
+    "condition_delta",
+    "target_inspect_month",
+    "target_inspect_year",
+    "inspection_interval_months",
+    "split"
+  ],
+  "prohibited_leakage_fields_confirmed_absent": [
+    "2025_LOWEST_RATING",
+    "2025_BRIDGE_CONDITION",
+    "2025_SUPERSTRUCTURE_COND_059",
+    "2025_SUBSTRUCTURE_COND_060",
+    "2025_CULVERT_COND_062",
+    "WORK_PROPOSED_*",
+    "WORK_DONE_*",
+    "FUTURE_ADT_*"
+  ],
+  "split_strategy": "SHA-256 bridge_id hash partitioning (70% train, 15% val, 15% test)",
+  "split_distribution": {
+    "train": 304541,
+    "val": 65089,
+    "test": 65580
+  },
+  "exclusion_accounting": {
+    "raw_rows_2023": 621581,
+    "raw_rows_2025": 624193,
+    "malformed_rows_2023": 0,
+    "malformed_rows_2025": 0,
+    "blank_ids_2023": 0,
+    "blank_ids_2025": 0,
+    "duplicate_id_rows_2023": 4,
+    "duplicate_id_rows_2025": 4,
+    "unique_valid_ids_2023": 621577,
+    "unique_valid_ids_2025": 624189,
+    "matched_1to1_pairs": 613574,
+    "unmatched_in_2023_only": 8003,
+    "unmatched_in_2025_only": 10615,
+    "excluded_non_numeric_deck_2023": 150483,
+    "excluded_non_numeric_deck_2025": 1176,
+    "excluded_invalid_or_missing_date_2023": 0,
+    "excluded_invalid_or_missing_date_2025": 0,
+    "excluded_uninspected_carryover_equal_dates": 26694,
+    "excluded_negative_interval_reverse_dates": 11,
+    "final_usable_modeling_records": 435210
+  },
+  "inspection_interval_months": {
+    "min_months": 1,
+    "max_months": 213,
+    "common_intervals_top5": [
+      [
+        24,
+        319552
+      ],
+      [
+        23,
+        29032
+      ],
+      [
+        25,
+        24158
+      ],
+      [
+        48,
+        16670
+      ],
+      [
+        22,
+        7004
+      ]
+    ]
+  },
+  "descriptive_persistence_baseline_test_split": {
+    "test_sample_size": 65580,
+    "exact_rating_accuracy_pct": 86.8,
+    "ordinal_mae": 0.1625,
+    "deterioration_event_recall_pct": 0.0,
+    "interpretation": "Persistence benchmark predicts no change. It achieves high exact accuracy due to 87%+ class persistence but zero recall on deteriorating structures."
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "phase": "Phase 22A & 22B: Out-of-Fold Calibrated Predictions and Threshold Analysis",
+  "generated_at": "2026-10-14T18:56:17.338617",
+  "total_runtime_seconds": 136.57,
+  "pre_run_checksums": {
+    "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+    "phase17_model": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+    "phase17_encoder": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "phase17_metadata": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+    "phase17_manifest": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+    "phase18_calibrator": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "phase21b_model": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+    "phase21b_calibrator": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f",
+    "phase21b_encoder": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "phase21b_manifest": "2270546e2d471f17da3f2838c7a9ac71e13123452e1be631c1e02bdaf106da9c"
+  },
+  "split_prevalence": {
+    "train_n": 304541,
+    "train_prev": 0.08711470705093896,
+    "val_n": 65089,
+    "val_prev": 0.08854030634976724,
+    "test_n": 65580,
+    "test_prev": 0.089097285757853
+  },
+  "threshold_origin_analysis": {
+    "finding": "Threshold tau=0.165 originated in Phase 21B from a 181-point threshold sweep on uncalibrated out-of-fold probabilities.",
+    "uncalibrated_scale": {
+      "mean": 0.08659915759329415,
+      "std": 0.09065683160454487,
+      "min": 0.002056228859168641,
+      "max": 0.9717272476685098,
+      "base_rate": 0.08711470705093896
+    },
+    "calibrated_scale": {
+      "mean": 0.08712099686379032,
+      "std": 0.09808853225494714,
+      "min": 0.001476963875961722,
+      "max": 0.9820231123688564,
+      "brier_score": 0.07001440535239498,
+      "ece_10_bins": 0.000648523741653069
+    },
+    "scale_difference": {
+      "mean_abs_diff": 0.004438743854496036,
+      "max_abs_diff": 0.054456679420625265,
+      "correlation": 0.9996031794831298
+    }
+  },
+  "policy_presets_training_oof": {
+    "max_f1_balanced": {
+      "policy_name": "Maximum F1 Balanced Inspection",
+      "threshold": 0.168,
+      "metrics": {
+        "tau": 0.168,
+        "precision": 0.28937,
+        "recall": 0.41681,
+        "f1": 0.34159,
+        "accuracy": 0.86003,
+        "balanced_accuracy": 0.65957,
+        "specificity": 0.90232,
+        "workload_pct": 12.55,
+        "bridges_inspected": 38214,
+        "tp": 11058,
+        "fp": 27156,
+        "tn": 250855,
+        "fn": 15472
+      },
+      "rationale": "Optimizes harmonic balance between true detections and inspection budget."
+    },
+    "origin_threshold_calibrated": {
+      "policy_name": "Origin Threshold on Calibrated Scale (tau=0.165)",
+      "threshold": 0.165,
+      "metrics": {
+        "tau": 0.165,
+        "precision": 0.28586,
+        "recall": 0.42386,
+        "f1": 0.34144,
+        "accuracy": 0.85756,
+        "balanced_accuracy": 0.6614,
+        "specificity": 0.89895,
+        "workload_pct": 12.92,
+        "bridges_inspected": 39338,
+        "tp": 11245,
+        "fp": 28093,
+        "tn": 249918,
+        "fn": 15285
+      },
+      "rationale": "Historical threshold from Phase 21B evaluated directly on the calibrated probability scale."
+    },
+    "origin_threshold_uncalibrated": {
+      "policy_name": "Origin Threshold on Uncalibrated Scale (tau=0.165)",
+      "threshold": 0.165,
+      "metrics": {
+        "tau": 0.165,
+        "precision": 0.29216,
+        "recall": 0.41044,
+        "f1": 0.34134,
+        "accuracy": 0.86201,
+        "balanced_accuracy": 0.65777,
+        "specificity": 0.9051,
+        "workload_pct": 12.24,
+        "bridges_inspected": 37271,
+        "tp": 10889,
+        "fp": 26382,
+        "tn": 251629,
+        "fn": 15641
+      },
+      "rationale": "Historical reference point matching the exact Phase 21B uncalibrated derivation."
+    },
+    "workload_5_pct": {
+      "policy_name": "Tight Budget Workload Cap (5% of Inventory)",
+      "threshold": 0.278,
+      "metrics": {
+        "tau": 0.278,
+        "precision": 0.41091,
+        "recall": 0.23566,
+        "f1": 0.29953,
+        "accuracy": 0.90398,
+        "balanced_accuracy": 0.60171,
+        "specificity": 0.96776,
+        "workload_pct": 5.0,
+        "bridges_inspected": 15215,
+        "tp": 6252,
+        "fp": 8963,
+        "tn": 269048,
+        "fn": 20278
+      },
+      "rationale": "Restricts physical inspections to the highest-risk 5% of the portfolio."
+    },
+    "workload_10_pct": {
+      "policy_name": "Standard Inspection Workload (10% of Inventory)",
+      "threshold": 0.192,
+      "metrics": {
+        "tau": 0.192,
+        "precision": 0.31705,
+        "recall": 0.3651,
+        "f1": 0.33938,
+        "accuracy": 0.87618,
+        "balanced_accuracy": 0.64502,
+        "specificity": 0.92495,
+        "workload_pct": 10.03,
+        "bridges_inspected": 30550,
+        "tp": 9686,
+        "fp": 20864,
+        "tn": 257147,
+        "fn": 16844
+      },
+      "rationale": "Targets an annual/biennial inspection capacity matching typical State DOT capacity (10%)."
+    },
+    "workload_12_5_pct": {
+      "policy_name": "Expanded Maintenance Workload (12.5% of Inventory)",
+      "threshold": 0.168,
+      "metrics": {
+        "tau": 0.168,
+        "precision": 0.28937,
+        "recall": 0.41681,
+        "f1": 0.34159,
+        "accuracy": 0.86003,
+        "balanced_accuracy": 0.65957,
+        "specificity": 0.90232,
+        "workload_pct": 12.55,
+        "bridges_inspected": 38214,
+        "tp": 11058,
+        "fp": 27156,
+        "tn": 250855,
+        "fn": 15472
+      },
+      "rationale": "Enables proactive maintenance across 12.5% of the portfolio."
+    },
+    "workload_15_pct": {
+      "policy_name": "High-Capacity Inspection Workload (15% of Inventory)",
+      "threshold": 0.15,
+      "metrics": {
+        "tau": 0.15,
+        "precision": 0.26873,
+        "recall": 0.46336,
+        "f1": 0.34018,
+        "accuracy": 0.84341,
+        "balanced_accuracy": 0.67152,
+        "specificity": 0.87968,
+        "workload_pct": 15.02,
+        "bridges_inspected": 45744,
+        "tp": 12293,
+        "fp": 33451,
+        "tn": 244560,
+        "fn": 14237
+      },
+      "rationale": "Accommodates comprehensive inspection campaigns with expanded field teams."
+    },
+    "recall_70_pct": {
+      "policy_name": "Safety-Critical Policy (70% Recall Target)",
+      "threshold": 0.082,
+      "metrics": {
+        "tau": 0.082,
+        "precision": 0.18155,
+        "recall": 0.7006,
+        "f1": 0.28838,
+        "accuracy": 0.69878,
+        "balanced_accuracy": 0.6996,
+        "specificity": 0.69861,
+        "workload_pct": 33.62,
+        "bridges_inspected": 102378,
+        "tp": 18587,
+        "fp": 83791,
+        "tn": 194220,
+        "fn": 7943
+      },
+      "rationale": "Risk-averse policy designed to identify at least 70% of deteriorating structures."
+    },
+    "precision_40_pct": {
+      "policy_name": "High-Efficiency Policy (40% Precision Target)",
+      "threshold": 0.268,
+      "metrics": {
+        "tau": 0.268,
+        "precision": 0.40044,
+        "recall": 0.24832,
+        "f1": 0.30655,
+        "accuracy": 0.90213,
+        "balanced_accuracy": 0.60642,
+        "specificity": 0.96452,
+        "workload_pct": 5.4,
+        "bridges_inspected": 16452,
+        "tp": 6588,
+        "fp": 9864,
+        "tn": 268147,
+        "fn": 19942
+      },
+      "rationale": "Resource-conservative policy minimizing wasted inspections (2 out of 5 flags true)."
+    }
+  },
+  "calibrator_fold_parameters": [
+    {
+      "fold": 1,
+      "coef": 1.0793416932878412,
+      "intercept": 0.165771796354741
+    },
+    {
+      "fold": 2,
+      "coef": 1.072333618368827,
+      "intercept": 0.15528840778976588
+    },
+    {
+      "fold": 3,
+      "coef": 1.0807696173602446,
+      "intercept": 0.16808041086072772
+    },
+    {
+      "fold": 4,
+      "coef": 1.0886137422355773,
+      "intercept": 0.18731886555594454
+    },
+    {
+      "fold": 5,
+      "coef": 1.0904031642013072,
+      "intercept": 0.19359289368726443
+    }
+  ],
+  "test_audit_comparison": {
+    "max_f1_optimal": {
+      "policy_description": "Max F1 Optimal Operating Point (Tuned on validation/OOF)",
+      "phase17": {
+        "threshold": 0.194,
+        "metrics": {
+          "tau": 0.194,
+          "precision": 0.30869,
+          "recall": 0.35804,
+          "f1": 0.33154,
+          "accuracy": 0.87136,
+          "balanced_accuracy": 0.6398,
+          "specificity": 0.92157,
+          "workload_pct": 10.33,
+          "bridges_inspected": 6777,
+          "tp": 2092,
+          "fp": 4685,
+          "tn": 55052,
+          "fn": 3751
+        }
+      },
+      "phase21b": {
+        "threshold": 0.168,
+        "metrics": {
+          "tau": 0.168,
+          "precision": 0.29531,
+          "recall": 0.42444,
+          "f1": 0.34829,
+          "accuracy": 0.85848,
+          "balanced_accuracy": 0.66269,
+          "specificity": 0.90093,
+          "workload_pct": 12.81,
+          "bridges_inspected": 8398,
+          "tp": 2480,
+          "fp": 5918,
+          "tn": 53819,
+          "fn": 3363
+        }
+      }
+    },
+    "historical_operating_points": {
+      "policy_description": "Historical Baseline Operational Points",
+      "phase17_tau_680_uncal": {
+        "threshold": 0.68,
+        "metrics": {
+          "tau": 0.68,
+          "precision": 0.30377,
+          "recall": 0.36403,
+          "f1": 0.33118,
+          "accuracy": 0.869,
+          "balanced_accuracy": 0.64121,
+          "specificity": 0.91839,
+          "workload_pct": 10.68,
+          "bridges_inspected": 7002,
+          "tp": 2127,
+          "fp": 4875,
+          "tn": 54862,
+          "fn": 3716
+        }
+      },
+      "phase21b_tau_165_cal": {
+        "threshold": 0.165,
+        "metrics": {
+          "tau": 0.165,
+          "precision": 0.2917,
+          "recall": 0.43009,
+          "f1": 0.34763,
+          "accuracy": 0.85618,
+          "balanced_accuracy": 0.66397,
+          "specificity": 0.89785,
+          "workload_pct": 13.14,
+          "bridges_inspected": 8615,
+          "tp": 2513,
+          "fp": 6102,
+          "tn": 53635,
+          "fn": 3330
+        }
+      },
+      "phase21b_tau_165_uncal": {
+        "threshold": 0.165,
+        "metrics": {
+          "tau": 0.165,
+          "precision": 0.29911,
+          "recall": 0.41828,
+          "f1": 0.34879,
+          "accuracy": 0.86084,
+          "balanced_accuracy": 0.6612,
+          "specificity": 0.90413,
+          "workload_pct": 12.46,
+          "bridges_inspected": 8171,
+          "tp": 2444,
+          "fp": 5727,
+          "tn": 54010,
+          "fn": 3399
+        }
+      }
+    },
+    "fixed_workload_10pct": {
+      "policy_description": "Fixed 10% Workload Budget (Thresholds frozen from validation/OOF)",
+      "phase17": {
+        "threshold": 0.192,
+        "metrics": {
+          "tau": 0.192,
+          "precision": 0.30625,
+          "recall": 0.36249,
+          "f1": 0.332,
+          "accuracy": 0.87004,
+          "balanced_accuracy": 0.64108,
+          "specificity": 0.91968,
+          "workload_pct": 10.55,
+          "bridges_inspected": 6916,
+          "tp": 2118,
+          "fp": 4798,
+          "tn": 54939,
+          "fn": 3725
+        }
+      },
+      "phase21b": {
+        "threshold": 0.192,
+        "metrics": {
+          "tau": 0.192,
+          "precision": 0.32098,
+          "recall": 0.36762,
+          "f1": 0.34272,
+          "accuracy": 0.87437,
+          "balanced_accuracy": 0.64578,
+          "specificity": 0.92393,
+          "workload_pct": 10.2,
+          "bridges_inspected": 6692,
+          "tp": 2148,
+          "fp": 4544,
+          "tn": 55193,
+          "fn": 3695
+        }
+      }
+    },
+    "fixed_workload_12_5pct": {
+      "policy_description": "Fixed 12.5% Workload Budget (Thresholds frozen from validation/OOF)",
+      "phase17": {
+        "threshold": 0.168,
+        "metrics": {
+          "tau": 0.168,
+          "precision": 0.27789,
+          "recall": 0.4229,
+          "f1": 0.33539,
+          "accuracy": 0.85067,
+          "balanced_accuracy": 0.65771,
+          "specificity": 0.89251,
+          "workload_pct": 13.56,
+          "bridges_inspected": 8892,
+          "tp": 2471,
+          "fp": 6421,
+          "tn": 53316,
+          "fn": 3372
+        }
+      },
+      "phase21b": {
+        "threshold": 0.168,
+        "metrics": {
+          "tau": 0.168,
+          "precision": 0.29531,
+          "recall": 0.42444,
+          "f1": 0.34829,
+          "accuracy": 0.85848,
+          "balanced_accuracy": 0.66269,
+          "specificity": 0.90093,
+          "workload_pct": 12.81,
+          "bridges_inspected": 8398,
+          "tp": 2480,
+          "fp": 5918,
+          "tn": 53819,
+          "fn": 3363
+        }
+      }
+    },
+    "safety_critical_70pct_recall": {
+      "policy_description": "Safety-Critical Target (70% Recall threshold frozen from OOF)",
+      "phase17": {
+        "threshold": 0.082,
+        "metrics": {
+          "tau": 0.082,
+          "precision": 0.17436,
+          "recall": 0.71128,
+          "f1": 0.28006,
+          "accuracy": 0.67418,
+          "balanced_accuracy": 0.69092,
+          "specificity": 0.67056,
+          "workload_pct": 36.35,
+          "bridges_inspected": 23836,
+          "tp": 4156,
+          "fp": 19680,
+          "tn": 40057,
+          "fn": 1687
+        }
+      },
+      "phase21b": {
+        "threshold": 0.082,
+        "metrics": {
+          "tau": 0.082,
+          "precision": 0.18575,
+          "recall": 0.70563,
+          "f1": 0.29408,
+          "accuracy": 0.69817,
+          "balanced_accuracy": 0.70154,
+          "specificity": 0.69744,
+          "workload_pct": 33.85,
+          "bridges_inspected": 22197,
+          "tp": 4123,
+          "fp": 18074,
+          "tn": 41663,
+          "fn": 1720
+        }
+      }
+    }
+  },
+  "workload_quantification": {
+    "test_total_bridges": 65580,
+    "test_total_deteriorated": 5843,
+    "baseline_p17_at_tau_680": {
+      "tau": 0.68,
+      "precision": 0.30377,
+      "recall": 0.36403,
+      "f1": 0.33118,
+      "accuracy": 0.869,
+      "balanced_accuracy": 0.64121,
+      "specificity": 0.91839,
+      "workload_pct": 10.68,
+      "bridges_inspected": 7002,
+      "tp": 2127,
+      "fp": 4875,
+      "tn": 54862,
+      "fn": 3716
+    },
+    "phase21b_at_optimal_cal": {
+      "tau": 0.168,
+      "precision": 0.29531,
+      "recall": 0.42444,
+      "f1": 0.34829,
+      "accuracy": 0.85848,
+      "balanced_accuracy": 0.66269,
+      "specificity": 0.90093,
+      "workload_pct": 12.81,
+      "bridges_inspected": 8398,
+      "tp": 2480,
+      "fp": 5918,
+      "tn": 53819,
+      "fn": 3363
+    },
+    "phase21b_at_tau_165_cal": {
+      "tau": 0.165,
+      "precision": 0.2917,
+      "recall": 0.43009,
+      "f1": 0.34763,
+      "accuracy": 0.85618,
+      "balanced_accuracy": 0.66397,
+      "specificity": 0.89785,
+      "workload_pct": 13.14,
+      "bridges_inspected": 8615,
+      "tp": 2513,
+      "fp": 6102,
+      "tn": 53635,
+      "fn": 3330
+    },
+    "improvements_at_optimal_f1": {
+      "additional_true_detections": 353,
+      "recall_absolute_gain_pct": 6.04,
+      "f1_gain": 0.0171,
+      "false_negative_reduction": 353,
+      "workload_delta_bridges": 1396,
+      "precision_delta_pct": -0.85
+    },
+    "improvements_at_tau_165_cal": {
+      "additional_true_detections": 386,
+      "recall_absolute_gain_pct": 6.61,
+      "f1_gain": 0.0165,
+      "false_negative_reduction": 386,
+      "workload_delta_bridges": 1613,
+      "precision_delta_pct": -1.21
+    }
+  }
+}

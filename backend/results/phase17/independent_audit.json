@@ -1,0 +1,157 @@
+{
+  "audit_metadata": {
+    "audit_timestamp": "2026-10-13T08:52:00Z",
+    "auditor_role": "Independent Senior ML Auditor",
+    "target_phase": "Phase 17",
+    "dataset_audited": "backend/data/processed/bridge_deck_condition_2023_2025.csv",
+    "code_audited": "backend/train_condition_models.py",
+    "artifacts_audited": [
+      "backend/results/phase17/model_metrics.json",
+      "backend/results/phase17/confusion_matrices.json",
+      "backend/results/phase17/feature_importances.json",
+      "backend/results/phase17/model_comparison_report.md"
+    ]
+  },
+  "audit_checks_summary": {
+    "total_checks": 12,
+    "passed": 10,
+    "failed": 0,
+    "qualified_pass_with_caveats": 2,
+    "not_verifiable": 0
+  },
+  "detailed_checks": [
+    {
+      "id": "CHK-01",
+      "title": "Dataset Row Count and Uniqueness Reconciliation",
+      "status": "PASS",
+      "evidence": "Total rows = 435,210; Unique bridge IDs = 435,210; Duplicates = 0. Matches manifest and reports exactly."
+    },
+    {
+      "id": "CHK-02",
+      "title": "Chronological Inspection Intervals Verification",
+      "status": "PASS",
+      "evidence": "100.0% of pairs have interval_months > 0. Min interval = 1 month, Max = 213 months. Zero non-positive intervals."
+    },
+    {
+      "id": "CHK-03",
+      "title": "Bridge-ID Separation Across Splits",
+      "status": "PASS",
+      "evidence": "Train=304,541, Val=65,089, Test=65,580. Pairwise intersections are strictly empty (0 overlap)."
+    },
+    {
+      "id": "CHK-04",
+      "title": "Target Leakage Prohibition Audit",
+      "status": "PASS",
+      "evidence": "All 26 features strictly originate from the 2023 baseline. No 2025 ratings, derived fields, or future work fields are present in the feature matrix."
+    },
+    {
+      "id": "CHK-05",
+      "title": "Inspection Age Calculation Verification",
+      "status": "PASS",
+      "evidence": "structure_age_at_inspection uses actual baseline inspection year (from Item 90 date string, e.g., 2021/2022) minus year_built, not the nominal release year 2023."
+    },
+    {
+      "id": "CHK-06",
+      "title": "Task 1 Matrix Sum & Metric Recalculation",
+      "status": "PASS",
+      "evidence": "Confusion matrices for Persistence, Ridge, and HistGBM sum to exactly 65,580. Exact accuracy, MAE, and RMSE match model_metrics.json to 4 decimal places."
+    },
+    {
+      "id": "CHK-07",
+      "title": "Task 1 Comparative Model Superiority Assessment",
+      "status": "QUALIFIED_PASS_WITH_CAVEATS",
+      "evidence": "HistGradientBoosting is NOT superior to Persistence on Exact Accuracy (86.15% vs 86.80%) or Ordinal MAE (0.1654 vs 0.1625). It only outperforms on continuous RMSE (0.4963 vs 0.5086). Claims of general model superiority for Task 1 are rejected."
+    },
+    {
+      "id": "CHK-08",
+      "title": "Task 2 Matrix Sum & Metric Recalculation",
+      "status": "PASS",
+      "evidence": "Binary confusion matrix totals 65,580 (TN=54,862, FP=4,875, FN=3,716, TP=2,127). Recalculated Precision (30.38%), Recall (36.40%), Specificity (91.84%), Balanced Accuracy (64.12%), and F1 (0.3312) match reported metrics exactly."
+    },
+    {
+      "id": "CHK-09",
+      "title": "Task 2 Decision Threshold Selection Independence",
+      "status": "PASS",
+      "evidence": "Optimal threshold tau=0.680 was selected strictly by sweeping on the validation set (Val F1=0.3384). Test split was evaluated only once using this threshold."
+    },
+    {
+      "id": "CHK-10",
+      "title": "Statistical Significance of Deterioration Lift",
+      "status": "PASS",
+      "evidence": "HistGBM PR-AUC = 0.2943 (95% Bootstrap CI: [0.2837, 0.3060]) vs. Always-Negative baseline PR-AUC = 0.0891 (positive prevalence). ROC-AUC = 0.7625 (95% CI: [0.7566, 0.7684]). McNemar chi-squared = 1077.7, p < 1e-200. Lift is statistically significant."
+    },
+    {
+      "id": "CHK-11",
+      "title": "Probability Calibration Audit",
+      "status": "QUALIFIED_PASS_WITH_CAVEATS",
+      "evidence": "CRITICAL RISK: Because class_weight='balanced' was used, predicted probabilities are artificially shifted. Mean predicted probability is 0.4100 vs actual prevalence 0.0891. Brier score is 0.1901 (worse than climatological base rate 0.0812). Raw model probabilities cannot be used directly as physical risk probabilities without post-hoc calibration."
+    },
+    {
+      "id": "CHK-12",
+      "title": "Artifact Reproducibility from Saved Data",
+      "status": "PASS",
+      "evidence": "All metrics and matrices reproduce deterministically upon re-execution from the saved dataset and random seeds."
+    }
+  ],
+  "recalculated_metrics": {
+    "task1_condition_rating": {
+      "persistence_baseline": {
+        "exact_accuracy": 0.8680,
+        "ordinal_mae": 0.1625,
+        "rmse": 0.5086
+      },
+      "ridge_regression": {
+        "exact_accuracy": 0.8668,
+        "ordinal_mae": 0.1634,
+        "rmse": 0.5075
+      },
+      "hist_gradient_boosting": {
+        "exact_accuracy": 0.8615,
+        "ordinal_mae": 0.1654,
+        "rmse": 0.4963
+      }
+    },
+    "task2_deterioration_detection": {
+      "always_negative_baseline": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.0891,
+        "roc_auc": 0.5000,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5000
+      },
+      "balanced_logistic_regression": {
+        "precision": 0.1955,
+        "recall": 0.4063,
+        "f1": 0.2640,
+        "pr_auc": 0.1857,
+        "roc_auc": 0.6817,
+        "specificity": 0.8365,
+        "balanced_accuracy": 0.6214
+      },
+      "hist_gradient_boosting_classifier": {
+        "precision": 0.3038,
+        "precision_95_ci": [0.2931, 0.3146],
+        "recall": 0.3640,
+        "recall_95_ci": [0.3518, 0.3764],
+        "f1": 0.3312,
+        "pr_auc": 0.2943,
+        "pr_auc_95_ci": [0.2837, 0.3060],
+        "roc_auc": 0.7625,
+        "roc_auc_95_ci": [0.7566, 0.7684],
+        "specificity": 0.9184,
+        "balanced_accuracy": 0.6412,
+        "brier_score_raw": 0.1901,
+        "brier_score_base_rate": 0.0812,
+        "mean_predicted_probability": 0.4100,
+        "test_positive_prevalence": 0.0891
+      }
+    }
+  },
+  "phase_18_authorization_verdict": {
+    "status": "CONDITIONALLY_AUTHORIZED",
+    "mandatory_precondition": "Phase 18 MUST implement Platt scaling or isotonic calibration (or log-odds adjustment) before exposing deterioration probabilities to the optimization engine. Raw probabilities from the balanced model overestimate physical risk by over 4x."
+  },
+  "single_next_action": "Implement calibrated probability scaling in backend/score_bridge_risk.py to map raw ranking scores into calibrated empirical deterioration probabilities before connecting to the budget knapsack solver."
+}

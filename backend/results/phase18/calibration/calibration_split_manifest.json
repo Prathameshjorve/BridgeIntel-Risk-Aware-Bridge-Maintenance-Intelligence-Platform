@@ -1,0 +1,34 @@
+{
+  "pipeline_phase": "Phase 18B: Calibration Split Definition",
+  "generated_at": "2026-10-13T09:56:37.835332",
+  "random_state": 42,
+  "total_validation_records": 65089,
+  "partitions": {
+    "calibration_fit": {
+      "sample_count": 32544,
+      "positive_count": 2881,
+      "negative_count": 29663,
+      "prevalence": 0.08852630285152409
+    },
+    "calibration_assessment": {
+      "sample_count": 32545,
+      "positive_count": 2882,
+      "negative_count": 29663,
+      "prevalence": 0.0885543094177293
+    }
+  },
+  "sample_bridge_ids_fit_head": [
+    "50_200089000214082",
+    "39_0802914",
+    "39_7248490",
+    "26_000000000010647",
+    "20_000260605004764"
+  ],
+  "sample_bridge_ids_assess_head": [
+    "21_021C00036N",
+    "21_098B00152N",
+    "48_250650031101003",
+    "17_060012200000000",
+    "08_H-02-ES"
+  ]
+}

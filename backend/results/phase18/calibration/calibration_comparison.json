@@ -1,0 +1,448 @@
+{
+  "evaluation_partition": "calibration_assessment",
+  "sample_count": 32545,
+  "empirical_prevalence": 0.0885543094177293,
+  "timestamp": "2026-10-13T09:56:37.856695",
+  "candidates": {
+    "uncalibrated": {
+      "name": "Uncalibrated Baseline (Raw HGB Probabilities)",
+      "description": "Direct outputs of HistGradientBoostingClassifier(class_weight='balanced'). Overpredicts due to balanced training weights.",
+      "brier_score": 0.18946100900696203,
+      "log_loss": 0.5605033007385304,
+      "expected_calibration_error": 0.3201333325958677,
+      "maximum_calibration_error": 0.49055280700426995,
+      "calibration_slope": 1.1045167904600155,
+      "calibration_intercept": -2.283144987099628,
+      "calibration_in_the_large": 0.3201333325958677,
+      "roc_auc": 0.7639479846977788,
+      "pr_auc": 0.3007433869054644,
+      "mean_predicted_probability": 0.408687642013597,
+      "reliability_bins": [
+        {
+          "bin_index": 1,
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "sample_count": 744,
+          "mean_predicted_prob": 0.07568166627357012,
+          "observed_frequency": 0.002688172043010753,
+          "absolute_calibration_error": 0.07299349423055937
+        },
+        {
+          "bin_index": 2,
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "sample_count": 4358,
+          "mean_predicted_prob": 0.15434327020931873,
+          "observed_frequency": 0.017439192290041303,
+          "absolute_calibration_error": 0.13690407791927744
+        },
+        {
+          "bin_index": 3,
+          "bin_lower": 0.2,
+          "bin_upper": 0.30000000000000004,
+          "sample_count": 5917,
+          "mean_predicted_prob": 0.2515795860478156,
+          "observed_frequency": 0.0273787392259591,
+          "absolute_calibration_error": 0.2242008468218565
+        },
+        {
+          "bin_index": 4,
+          "bin_lower": 0.30000000000000004,
+          "bin_upper": 0.4,
+          "sample_count": 5999,
+          "mean_predicted_prob": 0.3495508812174147,
+          "observed_frequency": 0.054509084847474576,
+          "absolute_calibration_error": 0.2950417963699401
+        },
+        {
+          "bin_index": 5,
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "sample_count": 5373,
+          "mean_predicted_prob": 0.44858232875379045,
+          "observed_frequency": 0.07872696817420435,
+          "absolute_calibration_error": 0.3698553605795861
+        },
+        {
+          "bin_index": 6,
+          "bin_lower": 0.5,
+          "bin_upper": 0.6000000000000001,
+          "sample_count": 4150,
+          "mean_predicted_prob": 0.5478750057704764,
+          "observed_frequency": 0.10506024096385543,
+          "absolute_calibration_error": 0.442814764806621
+        },
+        {
+          "bin_index": 7,
+          "bin_lower": 0.6000000000000001,
+          "bin_upper": 0.7000000000000001,
+          "sample_count": 2987,
+          "mean_predicted_prob": 0.647451280732018,
+          "observed_frequency": 0.15801807833947104,
+          "absolute_calibration_error": 0.48943320239254695
+        },
+        {
+          "bin_index": 8,
+          "bin_lower": 0.7000000000000001,
+          "bin_upper": 0.8,
+          "sample_count": 1958,
+          "mean_predicted_prob": 0.7469368723770994,
+          "observed_frequency": 0.25638406537282943,
+          "absolute_calibration_error": 0.49055280700426995
+        },
+        {
+          "bin_index": 9,
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "sample_count": 885,
+          "mean_predicted_prob": 0.8390984466722146,
+          "observed_frequency": 0.4056497175141243,
+          "absolute_calibration_error": 0.43344872915809024
+        },
+        {
+          "bin_index": 10,
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "sample_count": 174,
+          "mean_predicted_prob": 0.9384851015929262,
+          "observed_frequency": 0.7068965517241379,
+          "absolute_calibration_error": 0.2315885498687883
+        }
+      ]
+    },
+    "prior_shift": {
+      "name": "Prior Base-Rate Shift",
+      "description": "Analytic closed-form logit shift by -ln(N_neg / N_pos) = -2.3494. Adjusts intercept without scaling slope.",
+      "brier_score": 0.07191066313314821,
+      "log_loss": 0.25797204556422737,
+      "expected_calibration_error": 0.00657716321244641,
+      "maximum_calibration_error": 0.19911917010180658,
+      "calibration_slope": 1.1045524591560512,
+      "calibration_intercept": 0.31175234865058365,
+      "calibration_in_the_large": -0.006577163212446405,
+      "roc_auc": 0.7639479846977788,
+      "pr_auc": 0.3007433869054644,
+      "mean_predicted_probability": 0.08197714620528289,
+      "reliability_bins": [
+        {
+          "bin_index": 1,
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "sample_count": 24050,
+          "mean_predicted_prob": 0.04586005791232604,
+          "observed_frequency": 0.047692307692307694,
+          "absolute_calibration_error": 0.0018322497799816567
+        },
+        {
+          "bin_index": 2,
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "sample_count": 6018,
+          "mean_predicted_prob": 0.1378864515216912,
+          "observed_frequency": 0.14390162844798937,
+          "absolute_calibration_error": 0.00601517692629816
+        },
+        {
+          "bin_index": 3,
+          "bin_lower": 0.2,
+          "bin_upper": 0.30000000000000004,
+          "sample_count": 1666,
+          "mean_predicted_prob": 0.2415467672499897,
+          "observed_frequency": 0.28211284513805523,
+          "absolute_calibration_error": 0.040566077888065544
+        },
+        {
+          "bin_index": 4,
+          "bin_lower": 0.30000000000000004,
+          "bin_upper": 0.4,
+          "sample_count": 530,
+          "mean_predicted_prob": 0.34284438209664775,
+          "observed_frequency": 0.41320754716981134,
+          "absolute_calibration_error": 0.07036316507316359
+        },
+        {
+          "bin_index": 5,
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "sample_count": 140,
+          "mean_predicted_prob": 0.436807085630174,
+          "observed_frequency": 0.4785714285714286,
+          "absolute_calibration_error": 0.041764342941254584
+        },
+        {
+          "bin_index": 6,
+          "bin_lower": 0.5,
+          "bin_upper": 0.6000000000000001,
+          "sample_count": 63,
+          "mean_predicted_prob": 0.5469125759299395,
+          "observed_frequency": 0.746031746031746,
+          "absolute_calibration_error": 0.19911917010180658
+        },
+        {
+          "bin_index": 7,
+          "bin_lower": 0.6000000000000001,
+          "bin_upper": 0.7000000000000001,
+          "sample_count": 37,
+          "mean_predicted_prob": 0.6529863195001202,
+          "observed_frequency": 0.7837837837837838,
+          "absolute_calibration_error": 0.13079746428366357
+        },
+        {
+          "bin_index": 8,
+          "bin_lower": 0.7000000000000001,
+          "bin_upper": 0.8,
+          "sample_count": 34,
+          "mean_predicted_prob": 0.7517216982839877,
+          "observed_frequency": 0.8823529411764706,
+          "absolute_calibration_error": 0.13063124289248285
+        },
+        {
+          "bin_index": 9,
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "sample_count": 7,
+          "mean_predicted_prob": 0.8227446596108664,
+          "observed_frequency": 1.0,
+          "absolute_calibration_error": 0.1772553403891336
+        },
+        {
+          "bin_index": 10,
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "sample_count": 0,
+          "mean_predicted_prob": 0.95,
+          "observed_frequency": 0.0,
+          "absolute_calibration_error": 0.0
+        }
+      ]
+    },
+    "isotonic_regression": {
+      "name": "Isotonic Regression",
+      "description": "Non-parametric piecewise constant monotonic calibration fitted on the calibration-fit partition.",
+      "brier_score": 0.07173931856040354,
+      "log_loss": 0.2580620074070049,
+      "expected_calibration_error": 0.004333257354153355,
+      "maximum_calibration_error": 0.5710470800300383,
+      "calibration_slope": 0.9647827712242699,
+      "calibration_intercept": -0.07967774582387495,
+      "calibration_in_the_large": 0.0006968581471781671,
+      "roc_auc": 0.7629066022546167,
+      "pr_auc": 0.2861126526916673,
+      "mean_predicted_probability": 0.08925116756490746,
+      "reliability_bins": [
+        {
+          "bin_index": 1,
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "sample_count": 23603,
+          "mean_predicted_prob": 0.04498270878147482,
+          "observed_frequency": 0.04681608270135152,
+          "absolute_calibration_error": 0.0018333739198767018
+        },
+        {
+          "bin_index": 2,
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "sample_count": 5535,
+          "mean_predicted_prob": 0.13471327490394183,
+          "observed_frequency": 0.12917795844625113,
+          "absolute_calibration_error": 0.005535316457690703
+        },
+        {
+          "bin_index": 3,
+          "bin_lower": 0.2,
+          "bin_upper": 0.30000000000000004,
+          "sample_count": 1956,
+          "mean_predicted_prob": 0.2518326649454305,
+          "observed_frequency": 0.2367075664621677,
+          "absolute_calibration_error": 0.015125098483262794
+        },
+        {
+          "bin_index": 4,
+          "bin_lower": 0.30000000000000004,
+          "bin_upper": 0.4,
+          "sample_count": 889,
+          "mean_predicted_prob": 0.3395457634637922,
+          "observed_frequency": 0.3217097862767154,
+          "absolute_calibration_error": 0.0178359771870768
+        },
+        {
+          "bin_index": 5,
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "sample_count": 392,
+          "mean_predicted_prob": 0.4442807492541395,
+          "observed_frequency": 0.4846938775510204,
+          "absolute_calibration_error": 0.040413128296880874
+        },
+        {
+          "bin_index": 6,
+          "bin_lower": 0.5,
+          "bin_upper": 0.6000000000000001,
+          "sample_count": 1,
+          "mean_predicted_prob": 0.5710470800300383,
+          "observed_frequency": 0.0,
+          "absolute_calibration_error": 0.5710470800300383
+        },
+        {
+          "bin_index": 7,
+          "bin_lower": 0.6000000000000001,
+          "bin_upper": 0.7000000000000001,
+          "sample_count": 89,
+          "mean_predicted_prob": 0.6569500604614587,
+          "observed_frequency": 0.6179775280898876,
+          "absolute_calibration_error": 0.038972532371571056
+        },
+        {
+          "bin_index": 8,
+          "bin_lower": 0.7000000000000001,
+          "bin_upper": 0.8,
+          "sample_count": 26,
+          "mean_predicted_prob": 0.7622897159630005,
+          "observed_frequency": 0.7307692307692307,
+          "absolute_calibration_error": 0.03152048519376982
+        },
+        {
+          "bin_index": 9,
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "sample_count": 29,
+          "mean_predicted_prob": 0.8600608561283918,
+          "observed_frequency": 0.8620689655172413,
+          "absolute_calibration_error": 0.002008109388849544
+        },
+        {
+          "bin_index": 10,
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "sample_count": 25,
+          "mean_predicted_prob": 0.9965826589355217,
+          "observed_frequency": 0.96,
+          "absolute_calibration_error": 0.036582658935521706
+        }
+      ]
+    },
+    "platt_scaling": {
+      "name": "Platt Scaling (Sigmoid Recalibration)",
+      "description": "Parametric logistic regression on raw decision margin (A * z + B) fitted on the calibration-fit partition.",
+      "brier_score": 0.07166581226492882,
+      "log_loss": 0.2573467699045295,
+      "expected_calibration_error": 0.004432832979839055,
+      "maximum_calibration_error": 0.11504203972104021,
+      "calibration_slope": 0.9959893255805058,
+      "calibration_intercept": -0.01786160134182258,
+      "calibration_in_the_large": 0.0007205007886406933,
+      "roc_auc": 0.7639479846977788,
+      "pr_auc": 0.3007433869054644,
+      "mean_predicted_probability": 0.08927481020636999,
+      "reliability_bins": [
+        {
+          "bin_index": 1,
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "sample_count": 23220,
+          "mean_predicted_prob": 0.0445620183591944,
+          "observed_frequency": 0.0458656330749354,
+          "absolute_calibration_error": 0.0013036147157410027
+        },
+        {
+          "bin_index": 2,
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "sample_count": 6050,
+          "mean_predicted_prob": 0.1395833172513275,
+          "observed_frequency": 0.12859504132231406,
+          "absolute_calibration_error": 0.010988275929013441
+        },
+        {
+          "bin_index": 3,
+          "bin_lower": 0.2,
+          "bin_upper": 0.30000000000000004,
+          "sample_count": 1965,
+          "mean_predicted_prob": 0.24314654896850846,
+          "observed_frequency": 0.24580152671755726,
+          "absolute_calibration_error": 0.002654977749048798
+        },
+        {
+          "bin_index": 4,
+          "bin_lower": 0.30000000000000004,
+          "bin_upper": 0.4,
+          "sample_count": 771,
+          "mean_predicted_prob": 0.3422202622066776,
+          "observed_frequency": 0.33073929961089493,
+          "absolute_calibration_error": 0.011480962595782684
+        },
+        {
+          "bin_index": 5,
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "sample_count": 325,
+          "mean_predicted_prob": 0.44316426079500965,
+          "observed_frequency": 0.48307692307692307,
+          "absolute_calibration_error": 0.039912662281913425
+        },
+        {
+          "bin_index": 6,
+          "bin_lower": 0.5,
+          "bin_upper": 0.6000000000000001,
+          "sample_count": 87,
+          "mean_predicted_prob": 0.5462842783414601,
+          "observed_frequency": 0.4482758620689655,
+          "absolute_calibration_error": 0.09800841627249457
+        },
+        {
+          "bin_index": 7,
+          "bin_lower": 0.6000000000000001,
+          "bin_upper": 0.7000000000000001,
+          "sample_count": 54,
+          "mean_predicted_prob": 0.6475237676866699,
+          "observed_frequency": 0.7407407407407407,
+          "absolute_calibration_error": 0.09321697305407084
+        },
+        {
+          "bin_index": 8,
+          "bin_lower": 0.7000000000000001,
+          "bin_upper": 0.8,
+          "sample_count": 37,
+          "mean_predicted_prob": 0.7498228251438247,
+          "observed_frequency": 0.8648648648648649,
+          "absolute_calibration_error": 0.11504203972104021
+        },
+        {
+          "bin_index": 9,
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "sample_count": 34,
+          "mean_predicted_prob": 0.8391500715458929,
+          "observed_frequency": 0.9117647058823529,
+          "absolute_calibration_error": 0.07261463433645998
+        },
+        {
+          "bin_index": 10,
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "sample_count": 2,
+          "mean_predicted_prob": 0.9044121093857782,
+          "observed_frequency": 1.0,
+          "absolute_calibration_error": 0.0955878906142218
+        }
+      ]
+    }
+  },
+  "champion_selection": {
+    "champion_method": "platt_scaling",
+    "champion_name": "Platt Scaling (Sigmoid Recalibration)",
+    "rationale": "Platt Scaling (Sigmoid Recalibration) is selected as the winning champion calibrator based on the following conclusive criteria:\n1. Superior Probability Calibration: Achieves the lowest Brier Score (0.07167) and lowest Log Loss (0.25735) among all candidates.\n2. Near-Ideal Calibration Slope: Calibration slope of 0.9960 is remarkably close to the ideal 1.0000, indicating perfect probability spread.\n3. Zero Calibration Bias: Calibration-in-the-large is +0.0007, virtually eliminating the +0.3201 over-prediction bias of the uncalibrated model.\n4. Strict Rank Discrimination Preservation: ROC-AUC (0.7639) and PR-AUC (0.3007) are mathematically identical to the uncalibrated model, because Platt scaling is a strictly continuous, strictly monotonic transformation.\n5. Avoidance of Step Artifacts: In contrast to Isotonic Regression, which suffers from flat step-function regions causing artificial score ties and degraded PR-AUC (0.2861 vs 0.3007), Platt scaling guarantees distinct, continuous probabilities across all bridges."
+  },
+  "full_validation_fitted_model": {
+    "model_type": "LogisticRegression (Platt Scaling)",
+    "training_samples": 65089,
+    "target": "target_deterioration",
+    "input_feature": "raw_score (decision_function from HistGradientBoostingClassifier)",
+    "parameters": {
+      "A_slope": 1.1066895013320128,
+      "B_intercept": -2.2788614105901766
+    },
+    "formula": "1.0 / (1.0 + exp(-(1.10668950 * z + (-2.27886141))))"
+  }
+}

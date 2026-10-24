@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode: crisp, clean, professional engineering palette */
+  --color-slate-50: 2 6 23;        /* deep black-slate for primary emphases */
+  --color-slate-100: 15 23 42;      /* #0f172a primary heading text */
+  --color-slate-200: 30 41 59;      /* #1e293b section titles & labels */
+  --color-slate-300: 51 65 85;      /* #334155 body text */
+  --color-slate-400: 100 116 139;   /* #64748b secondary text with accessible contrast */
+  --color-slate-500: 148 163 184;   /* #94a3b8 subtle hints and inactive icons */
+  --color-slate-600: 203 213 225;   /* #cbd5e1 dividers */
+  --color-slate-700: 226 232 240;   /* #e2e8f0 borders on hover */
+  --color-slate-800: 226 232 240;   /* #e2e8f0 card & container borders */
+  --color-slate-850: 241 245 249;   /* #f1f5f9 subtle inner container background */
+  --color-slate-900: 255 255 255;   /* #ffffff pure white card & panel surfaces */
+  --color-slate-950: 248 250 252;   /* #f8fafc page background */
+}
+
+html.dark, :root.dark {
+  /* Dark mode: existing restrained dark navy/slate baseline */
+  --color-slate-50: 248 250 252;    /* #f8fafc */
+  --color-slate-100: 241 245 249;   /* #f1f5f9 */
+  --color-slate-200: 226 232 240;   /* #e2e8f0 */
+  --color-slate-300: 203 213 225;   /* #cbd5e1 */
+  --color-slate-400: 148 163 184;   /* #94a3b8 */
+  --color-slate-500: 100 116 139;   /* #64748b */
+  --color-slate-600: 71 85 105;     /* #475569 */
+  --color-slate-700: 51 65 85;      /* #334155 */
+  --color-slate-800: 30 41 59;      /* #1e293b */
+  --color-slate-850: 21 30 46;      /* #151e2e */
+  --color-slate-900: 15 23 42;      /* #0f172a */
+  --color-slate-950: 8 13 26;       /* #080d1a */
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased font-sans transition-colors duration-150;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-slate-700) / 0.8);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-slate-600));
+}

@@ -1,0 +1,90 @@
+{
+  "phase": "Phase 22H: Live Deployment Onboarding and Observation Operations",
+  "audit_timestamp_utc": "2026-10-15T07:40:00.000000+00:00",
+  "active_production_champion": "Phase 17 (HistGradientBoostingClassifier + Phase 18B Platt Calibrator)",
+  "shadow_candidate": "Phase 21B (C10 Tuned HistGradientBoosting + Cross-Fitted Platt Calibrator)",
+  "cutover_switch_enabled": false,
+  "pre_and_post_checksums_verified": true,
+  "verified_baseline_checksums": {
+    "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+    "hist_gradient_boosting_classifier.joblib": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+    "cat_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+    "inference_metadata.json": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+    "serialization_manifest.json": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+    "phase18_calibrator.joblib": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+    "phase21b_tuned_model.joblib": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+    "phase21b_calibrator.joblib": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f"
+  },
+  "readiness_state_assessment": {
+    "onboarding_state": "CONNECTION_VERIFIED",
+    "states": {
+      "CONFIGURATION_READY": true,
+      "CONNECTION_VERIFIED": true,
+      "AUTHENTIC_LIVE_TRAFFIC_CONFIRMED": false,
+      "OBSERVATION_STARTED": false
+    },
+    "prerequisites_status": {
+      "dot_production_infrastructure_available": false,
+      "dot_operational_credentials_configured": false,
+      "live_operational_traffic_flowing": false,
+      "observation_tracker_active": false
+    },
+    "configuration_checks": {
+      "prod_champion_loaded": true,
+      "shadow_candidate_loaded": true,
+      "shadow_enabled": true,
+      "cutover_switch_locked": true,
+      "calibrated_threshold_0_168": true,
+      "tracker_initialized": true
+    },
+    "connection_checks": {
+      "telemetry_logger_writable": true,
+      "tracker_state_writable": true,
+      "auth_boundaries_defined": true
+    }
+  },
+  "security_and_ingestion_adapter": {
+    "adapter_module": "backend/shadow_ingestion_adapter.py",
+    "deployed": true,
+    "require_auth_mode": false,
+    "auth_boundary_policy": "Distinguishes operational DOT credentials from test credentials; test credentials automatically remap traffic to SYNTHETIC_TEST",
+    "shadow_timeout_ms": 50.0,
+    "max_persistence_retries": 3,
+    "failure_isolation_verified": true,
+    "durable_idempotency_cache": "event_id_cache.txt",
+    "privacy_safe_pseudonymization": "SHA-256 masked record keys (rec_<hash>) and client tokens"
+  },
+  "observation_operations": {
+    "min_daily_coverage_records_required": 1,
+    "consecutive_days_elapsed": 0,
+    "target_consecutive_days": 30,
+    "observation_status": "NOT_STARTED",
+    "observation_start_date": null,
+    "last_observed_date": null,
+    "daily_summary": {},
+    "monitoring_gaps": [],
+    "streak_broken_history": [],
+    "traffic_source_policy": "Strict 30-consecutive-calendar-day monitoring window in UTC. Starts only upon first authentic LIVE_OPERATIONAL event meeting daily coverage criteria. Gaps break consecutive streak.",
+    "zero_fabrication_audit": "CONFIRMED — No synthetic or replayed events count toward live observation streak. Platform status accurately reported as NOT_STARTED (0/30 days)."
+  },
+  "outcome_dependent_metrics": {
+    "status": "PENDING_VERIFIED_GROUND_TRUTH",
+    "precision": "PENDING_VERIFIED_GROUND_TRUTH",
+    "recall": "PENDING_VERIFIED_GROUND_TRUTH",
+    "false_positive_rate": "PENDING_VERIFIED_GROUND_TRUTH",
+    "disclaimer": "Ground truth deck deterioration ratings (DECK_2025 < DECK_2023) require physical biennial bridge inspections conducted by certified DOT bridge inspection engineers. Unlabeled live operational predictions cannot produce verified outcome metrics."
+  },
+  "summary_verdict": {
+    "technical_readiness": "INGESTION_ADAPTER_DEPLOYED_AND_VERIFIED",
+    "observation_status": "AWAITING_VERIFIED_LIVE_DOT_TRAFFIC",
+    "promotion_allowed": false,
+    "cutover_enabled": false,
+    "remaining_blockers": [
+      "State DOT production credentials and operational ingestion pipeline not yet assigned.",
+      "Authentic LIVE_OPERATIONAL bridge scoring requests have not commenced (0 of 30 days).",
+      "Outcome-dependent metrics remain PENDING_VERIFIED_GROUND_TRUTH until biennial inspections occur.",
+      "State DOT bridge maintenance authorities have not granted written cutover sign-off."
+    ],
+    "immediate_mandate": "Maintain Phase 17 as sole production decision maker. Keep BRIDGE_PRODUCTION_CUTOVER_ENABLED=false strictly locked. Await authentic DOT live operational traffic routing."
+  }
+}

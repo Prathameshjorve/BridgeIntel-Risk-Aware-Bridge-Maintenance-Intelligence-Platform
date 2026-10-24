@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680">
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="450.0" y="32" font-family="sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">Phase 18B: Model Calibration Reliability Diagram</text>
+<text x="450.0" y="52" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Evaluation on Disjoint Validation Assessment Partition (N=32,545)</text>
+<line x1="90.0" y1="70" x2="90.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="560.0" x2="850" y2="560.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="90.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.0</text>
+<text x="78" y="564.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.0</text>
+<line x1="166.0" y1="70" x2="166.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="511.0" x2="850" y2="511.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="166.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.1</text>
+<text x="78" y="515.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.1</text>
+<line x1="242.0" y1="70" x2="242.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="462.0" x2="850" y2="462.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="242.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.2</text>
+<text x="78" y="466.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.2</text>
+<line x1="318.0" y1="70" x2="318.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="413.0" x2="850" y2="413.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="318.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.3</text>
+<text x="78" y="417.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.3</text>
+<line x1="394.0" y1="70" x2="394.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="364.0" x2="850" y2="364.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="394.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.4</text>
+<text x="78" y="368.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.4</text>
+<line x1="470.0" y1="70" x2="470.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="315.0" x2="850" y2="315.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="470.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.5</text>
+<text x="78" y="319.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.5</text>
+<line x1="546.0" y1="70" x2="546.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="266.0" x2="850" y2="266.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="546.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.6</text>
+<text x="78" y="270.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.6</text>
+<line x1="622.0" y1="70" x2="622.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="217.00000000000003" x2="850" y2="217.00000000000003" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="622.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.7</text>
+<text x="78" y="221.00000000000003" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.7</text>
+<line x1="698.0" y1="70" x2="698.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="167.99999999999997" x2="850" y2="167.99999999999997" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="698.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.8</text>
+<text x="78" y="171.99999999999997" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.8</text>
+<line x1="774.0" y1="70" x2="774.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="118.99999999999999" x2="850" y2="118.99999999999999" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="774.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">0.9</text>
+<text x="78" y="122.99999999999999" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">0.9</text>
+<line x1="850.0" y1="70" x2="850.0" y2="560" stroke="#f1f5f9" stroke-width="1.5" />
+<line x1="90" y1="70.0" x2="850" y2="70.0" stroke="#f1f5f9" stroke-width="1.5" />
+<text x="850.0" y="580" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">1.0</text>
+<text x="78" y="74.0" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="end">1.0</text>
+<line x1="90" y1="70" x2="90" y2="560" stroke="#334155" stroke-width="2" />
+<line x1="90" y1="560" x2="850" y2="560" stroke="#334155" stroke-width="2" />
+<text x="470.0" y="606" font-family="sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">Mean Predicted Probability</text>
+<text x="25" y="315.0" font-family="sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle" transform="rotate(-90 25 315.0)">Observed Deterioration Fraction</text>
+<line x1="90" y1="560.0" x2="850" y2="70.0" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,6" />
+<polyline points="147.5,558.7 207.3,551.5 281.2,546.6 355.7,533.3 430.9,521.4 506.4,508.5 582.1,482.6 657.7,434.4 727.7,361.2 803.2,213.6" fill="none" stroke="#ef4444" stroke-width="2" stroke-linejoin="round" />
+<rect x="143.5" y="554.7" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="203.3" y="547.5" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="277.2" y="542.6" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="351.7" y="529.3" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="426.9" y="517.4" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="502.4" y="504.5" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="578.1" y="478.6" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="653.7" y="430.4" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="723.7" y="357.2" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<rect x="799.2" y="209.6" width="8" height="8" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+<polyline points="124.9,536.6 194.8,489.5 273.6,421.8 350.6,357.5 422.0,325.5 505.7,194.4 586.3,175.9 661.3,127.6 715.3,70.0" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+<polygon points="124.85364401336778,531.6307692307691 129.85364401336778,536.6307692307691 124.85364401336778,541.6307692307691 119.85364401336778,536.6307692307691" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="194.79370315648532,484.4882020604852 199.79370315648532,489.4882020604852 194.79370315648532,494.4882020604852 189.79370315648532,489.4882020604852" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="273.57554310999217,416.7647058823529 278.57554310999217,421.7647058823529 273.57554310999217,426.7647058823529 268.57554310999217,421.7647058823529" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="350.5617303934523,352.52830188679246 355.5617303934523,357.52830188679246 350.5617303934523,362.52830188679246 345.5617303934523,357.52830188679246" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="421.97338507893227,320.5 426.97338507893227,325.5 421.97338507893227,330.5 416.97338507893227,325.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="505.653557706754,189.44444444444446 510.653557706754,194.44444444444446 505.653557706754,199.44444444444446 500.653557706754,194.44444444444446" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="586.2696028200913,170.94594594594594 591.2696028200913,175.94594594594594 586.2696028200913,180.94594594594594 581.2696028200913,175.94594594594594" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="661.3084906958306,122.64705882352942 666.3084906958306,127.64705882352942 661.3084906958306,132.64705882352942 656.3084906958306,127.64705882352942" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="715.2859413042585,65.0 720.2859413042585,70.0 715.2859413042585,75.0 710.2859413042585,70.0" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" />
+<polyline points="124.2,537.1 192.4,496.7 281.4,444.0 348.1,402.4 427.7,322.5 524.0,560.0 589.3,257.2 669.3,201.9 743.6,137.6 847.4,89.6" fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" />
+<polygon points="124.18685867392085,532.0601194763378 129.18685867392085,541.0601194763378 119.18685867392085,541.0601194763378" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="192.38208892699578,491.7028003613369 197.38208892699578,500.7028003613369 187.38208892699578,500.7028003613369" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="281.39282535852715,439.0132924335378 286.39282535852715,448.0132924335378 276.39282535852715,448.0132924335378" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="348.0547802324821,397.3622047244094 353.0547802324821,406.3622047244094 343.0547802324821,406.3622047244094" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="427.65336943314605,317.5 432.65336943314605,326.5 422.65336943314605,326.5" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="523.9957808228291,555.0 528.9957808228291,564.0 518.9957808228291,564.0" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="589.2820459507086,252.1910112359551 594.2820459507086,261.1910112359551 584.2820459507086,261.1910112359551" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="669.3401841318804,196.92307692307693 674.3401841318804,205.92307692307693 664.3401841318804,205.92307692307693" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="743.6462506575778,132.58620689655174 748.6462506575778,141.58620689655174 738.6462506575778,141.58620689655174" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polygon points="847.4028207909964,84.60000000000002 852.4028207909964,93.60000000000002 842.4028207909964,93.60000000000002" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+<polyline points="123.9,537.5 196.1,497.0 274.8,439.6 350.1,397.9 426.8,323.3 505.2,340.3 582.1,197.0 659.9,136.2 727.8,113.2 777.4,70.0" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" />
+<circle cx="123.9" cy="537.5" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="196.1" cy="497.0" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="274.8" cy="439.6" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="350.1" cy="397.9" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="426.8" cy="323.3" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="505.2" cy="340.3" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="582.1" cy="197.0" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="659.9" cy="136.2" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="727.8" cy="113.2" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="777.4" cy="70.0" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<rect x="105" y="85" width="280" height="135" fill="#ffffff" fill-opacity="0.92" stroke="#cbd5e1" stroke-width="1" rx="4" />
+<line x1="117" y1="103" x2="141" y2="103" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" />
+<text x="149" y="107" font-family="sans-serif" font-size="11" fill="#475569">Perfect Calibration (y = x)</text>
+<line x1="117" y1="125" x2="141" y2="125" stroke="#ef4444" stroke-width="2" />
+<rect x="125.5" y="121.5" width="7" height="7" fill="#ef4444" stroke="#ffffff" stroke-width="1" />
+<text x="149" y="129" font-family="sans-serif" font-size="11" fill="#1e293b">Uncalibrated Baseline (Brier: 0.1895, ECE: 0.3201)</text>
+<line x1="117" y1="147" x2="141" y2="147" stroke="#f59e0b" stroke-width="2" />
+<polygon points="129,143 133,147 129,151 125,147" fill="#f59e0b" stroke="#ffffff" stroke-width="1" />
+<text x="149" y="151" font-family="sans-serif" font-size="11" fill="#1e293b">Prior Base-Rate Shift (Brier: 0.0719, ECE: 0.0066)</text>
+<line x1="117" y1="169" x2="141" y2="169" stroke="#10b981" stroke-width="2" />
+<polygon points="129,165 133,172.5 125,172.5" fill="#10b981" stroke="#ffffff" stroke-width="1" />
+<text x="149" y="173" font-family="sans-serif" font-size="11" fill="#1e293b">Isotonic Regression (Brier: 0.0717, ECE: 0.0043)</text>
+<line x1="117" y1="191" x2="141" y2="191" stroke="#2563eb" stroke-width="3" />
+<circle cx="129" cy="191" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1" />
+<text x="149" y="195" font-family="sans-serif" font-size="11" fill="#1e293b">Platt Scaling (Champion) (Brier: 0.0717, ECE: 0.0044)</text>
+</svg>

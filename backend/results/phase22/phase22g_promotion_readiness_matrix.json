@@ -1,0 +1,141 @@
+{
+  "phase": "Phase 22G: Evidence Integrity Audit and Promotion Readiness",
+  "audit_timestamp_utc": "2026-10-15T06:01:00.000000+00:00",
+  "active_production_champion": "Phase 17 (HistGradientBoostingClassifier + Phase 18B Platt Calibrator)",
+  "shadow_candidate": "Phase 21B (C10 Tuned HistGradientBoosting + Cross-Fitted Platt Calibrator)",
+  "cutover_switch_enabled": false,
+  "overall_verdict": "PROMOTION_READINESS_PENDING_LIVE_OBSERVATION",
+  "active_governance_posture": "SHADOW OBSERVATION ACTIVE \u2014 PRODUCTION CUTOVER STRICTLY LOCKED",
+  "gate_matrix": {
+    "gate_01_cryptographic_immutability": {
+      "status": "PASS",
+      "criterion": "score_bridge_risk.py and all 11 baseline files in backend/results/phase17/* must remain 100% byte-for-byte identical",
+      "evidence": {
+        "score_bridge_risk.py": "b49055f0a2b9fbcb6afa046853730f83fb8c508ea161a540e0b48f2db2c3dc61",
+        "hist_gradient_boosting_classifier.joblib": "e2b4e2ec334c18b343a55b1bc26395b3684f76678cfa80d4ccc9edf588b6da0b",
+        "cat_encoder.joblib": "14fe2087570446889226640ebb8508e7e832be9b2241c9f92407f9a3f10c6772",
+        "inference_metadata.json": "b48922c28ee102d65f5af55fd6be446586bcc358e564e652455f8c1b8bedea24",
+        "serialization_manifest.json": "fedf43153bb898aafb2b1890873b2b65c9df7e1ef2a16292b2af75ecfc4d253e",
+        "phase18_calibrator.joblib": "7fb7915aefc952c87a17b347004bd2f3f6061f1ad9172e3a9f6f41e2732cfbd3",
+        "checksum_verification": "VERIFIED_IDENTICAL_PRE_AND_POST"
+      }
+    },
+    "gate_02_provenance_integrity_and_segregation": {
+      "status": "PASS",
+      "criterion": "Strict segregation of traffic sources (LIVE_OPERATIONAL, OFFLINE_TEST_REPLAY, SYNTHETIC_TEST); non-live sources cannot advance the live observation clock",
+      "evidence": {
+        "supported_sources": ["LIVE_OPERATIONAL", "OFFLINE_TEST_REPLAY", "SYNTHETIC_TEST", "UNKNOWN"],
+        "tracker_enforcement": "Replay and synthetic records increment non-live counters and return immediately without updating consecutive_days_elapsed or live_traffic_started",
+        "service_summary_audit": "Eliminated raw_calendar_days fallback in get_telemetry_summary(); clock advances strictly upon verified live operational events"
+      }
+    },
+    "gate_03_timestamp_and_day_boundary_logic": {
+      "status": "PASS",
+      "criterion": "Enforce future clock skew limit (<60s), stale timestamp rejection (>24h), strict UTC day boundaries, and out-of-order past-day event tolerance",
+      "evidence": {
+        "clock_skew_tolerance_seconds": 60.0,
+        "stale_timestamp_limit_hours": 24.0,
+        "utc_day_boundaries": "00:00:00 to 23:59:59 UTC calendar date matching",
+        "out_of_order_tolerance": "Events arriving with past UTC dates within the 24h stale window update that past day's daily record without breaking or resetting the active forward consecutive streak"
+      }
+    },
+    "gate_04_concurrency_and_thread_safety": {
+      "status": "PASS",
+      "criterion": "Multi-threaded concurrent requests must execute without race conditions, deadlocks, state file corruption, or lost updates",
+      "evidence": {
+        "locking_mechanism": "Reentrant locks (threading.RLock) guarding TelemetryEventValidator and LiveObservationTracker",
+        "stress_test_result": "10 concurrent worker threads submitting 20 records each (200 total) verified 100% atomic completion with zero exceptions and zero lost records"
+      }
+    },
+    "gate_05_durable_idempotency_and_ring_buffer": {
+      "status": "PASS",
+      "criterion": "Bounded memory consumption via ring buffer and persistent event cache surviving service restarts",
+      "evidence": {
+        "ring_buffer_capacity": 100000,
+        "eviction_policy": "Deterministic FIFO eviction via collections.deque",
+        "durable_cache": "event_id_cache.txt preserves seen event IDs across process lifecycles; rebooted validator immediately rejects previously submitted IDs as DUPLICATE_EVENT_ID"
+      }
+    },
+    "gate_06_atomic_persistence_and_recovery": {
+      "status": "PASS",
+      "criterion": "State must be persisted atomically with automatic recovery from backup (.bak) on JSON corruption",
+      "evidence": {
+        "atomic_write_strategy": "Writes to .tmp, creates .bak from existing state, atomically renames .tmp to destination",
+        "corruption_recovery": "Verified: intentional corruption of observation_tracker_state.json triggers automatic fallback loading from .bak, restoring 100% of state"
+      }
+    },
+    "gate_07_candidate_model_and_threshold_contract": {
+      "status": "PASS",
+      "criterion": "Phase 21B model, cross-fitted Platt calibrator, and calibrated 0.1680 threshold must match approved Phase 22 manifests byte-for-byte",
+      "evidence": {
+        "candidate_model_hash": "aa806c8185db465fd02536d2d4310638c499d41560ac759e0ea15d4a60f98443",
+        "candidate_calibrator_hash": "cd9d2f3833112e9fd90b5bd355646a1e68f50ac5218b038a95f0d31766c5978f",
+        "threshold_contract": "0.1680 applies to Platt-calibrated probability scale matching policy 'max_f1_balanced' in phase22_threshold_manifest.json"
+      }
+    },
+    "gate_08_operational_latency_and_sla": {
+      "status": "PASS",
+      "criterion": "p95 request latency must remain <= 15.0 ms for single-record API scoring",
+      "evidence": {
+        "phase17_p95_latency_ms": 12.03,
+        "phase21b_p95_latency_ms": 14.24,
+        "batch_amortized_runtime_ms": 0.04,
+        "sla_threshold_ms": 15.0,
+        "sla_compliance": true
+      }
+    },
+    "gate_09_operational_reliability": {
+      "status": "PASS",
+      "criterion": "Shadow scoring failures must remain <= 0.01% with zero impact on primary Phase 17 production responses",
+      "evidence": {
+        "failure_isolation": "Guarded try/except block; shadow crashes log warning and cannot alter or fail production responses",
+        "observed_failure_rate": 0.0,
+        "emergency_rollback": "Instant bypass via BRIDGE_SHADOW_MODE_ENABLED=false without application restart"
+      }
+    },
+    "gate_10_outcome_dependent_metrics": {
+      "status": "PENDING",
+      "criterion": "Precision, recall, FPR, and Brier score on live traffic must be verified against actual physical inspection ground truth",
+      "evidence": {
+        "current_status": "PENDING_VERIFIED_GROUND_TRUTH",
+        "rationale": "Target DECK_2025 < DECK_2023 represents routine biennial deck degradation evaluated by certified DOT bridge inspectors. Unlabeled live scoring events have no immediate ground truth. Premature outcome claims are scientifically invalid."
+      }
+    },
+    "gate_11_live_observation_period": {
+      "status": "PENDING",
+      "criterion": "30 consecutive calendar days of verified LIVE_OPERATIONAL bridge scoring traffic without continuity breaks",
+      "evidence": {
+        "observation_status": "NOT_STARTED",
+        "consecutive_days_elapsed": 0,
+        "target_consecutive_days": 30,
+        "target_met": false,
+        "zero_fabrication_audit": "CONFIRMED — No synthetic or replayed timestamps are counted as live observation days. Real-world DOT client traffic has not yet commenced."
+      }
+    },
+    "gate_12_governance_and_stakeholder_authorization": {
+      "status": "PENDING",
+      "criterion": "Written sign-off from State DOT bridge maintenance directors and explicit enabling of cutover switch",
+      "evidence": {
+        "cutover_switch_state": false,
+        "environment_variable": "BRIDGE_PRODUCTION_CUTOVER_ENABLED=false",
+        "stakeholder_approval_granted": false,
+        "promotion_authorized": false
+      }
+    }
+  },
+  "summary_verdict": {
+    "technical_scaffolding_readiness": "COMPLETE_AND_VERIFIED",
+    "promotion_readiness_status": "PENDING_LIVE_OBSERVATION_AND_STAKEHOLDER_APPROVAL",
+    "can_promote_now": false,
+    "remaining_blockers": [
+      "Live operational traffic ingestion has not started (0 of 30 consecutive calendar days elapsed).",
+      "Outcome-dependent metrics remain PENDING_VERIFIED_GROUND_TRUTH until biennial inspections occur.",
+      "Department of Transportation bridge engineering stakeholders have not granted explicit cutover authorization."
+    ],
+    "immediate_next_actions": [
+      "Maintain Phase 17 as the sole active production champion.",
+      "Keep BRIDGE_PRODUCTION_CUTOVER_ENABLED=false strictly locked.",
+      "Route authentic live DOT bridge scoring requests through the hardened shadow ingestion pipeline."
+    ]
+  }
+}
